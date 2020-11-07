@@ -18,6 +18,7 @@
 			<v-container fluid>
 				<GridUno />
 				<Experiencias />
+        <Valoracion />
 				<router-view></router-view>
 			</v-container>
 		</v-main>
@@ -27,12 +28,14 @@
 <script>
 import GridUno from '@/components/GridUno.vue';
 import Experiencias from '@/components/Experiencias.vue';
+import Valoracion from '@/components/Valoracion.vue';
 
 export default {
 	name: 'Home',
 	components: {
 		GridUno,
-		Experiencias,
+    Experiencias,
+    Valoracion
 	},
 	data: () => ({}),
 };
