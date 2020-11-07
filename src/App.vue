@@ -1,40 +1,68 @@
 <template>
 	<v-app>
-		<v-navigation-drawer app v-model="drawer" absolute bottom temporary>
-			<v-list nav dense>
-				<v-list-item-group v-model="group" active-class="deep-purple--text text--accent-4">
-					<v-list-item>
-						<v-list-item-title>Foo</v-list-item-title>
-					</v-list-item>
-
-					<v-list-item>
-						<v-list-item-title>Bar</v-list-item-title>
-					</v-list-item>
-
-					<v-list-item>
-						<v-list-item-title>Fizz</v-list-item-title>
-					</v-list-item>
-
-					<v-list-item>
-						<v-list-item-title>Buzz</v-list-item-title>
-					</v-list-item>
-				</v-list-item-group>
-			</v-list>
-		</v-navigation-drawer>
-
-		<v-app-bar app color="white" class="teal--text text--lighten-1 mx-4 teal--text"  elevate-on-scroll>
-			<v-app-bar-nav-icon class="mx-4 teal--text"  @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-
-			<v-toolbar-title>My files</v-toolbar-title>
-
+		<v-app-bar app color="white" class="pink--text " permanent elevate-on-scroll>
+			<v-img lazy-src="./assets/tango.png" max-height="40" max-width="30" src="./assets/tango.png"></v-img>
+			<v-toolbar-title class="mx-5">Baireando</v-toolbar-title>
 			<v-spacer></v-spacer>
 
-	
+			<div class="text-center">
+				<v-menu offset-y>
+					<template v-slot:activator="{ on, attrs }">
+						<v-btn text color="pink" v-bind="attrs" v-on="on">
+							Que ver
+						</v-btn>
+					</template>
+					<v-list>
+						<v-list-item v-for="(item, index) in items" :key="index">
+							<v-list-item-title>{{ item.title }}</v-list-item-title>
+						</v-list-item>
+					</v-list>
+				</v-menu>
+			</div>
+			<div c>
+				<v-menu offset-y>
+					<template v-slot:activator="{ on, attrs }">
+						<v-btn text color="pink" v-bind="attrs" v-on="on">
+							Que comer
+						</v-btn>
+					</template>
+					<v-list>
+						<v-list-item v-for="(item, index) in items" :key="index">
+							<v-list-item-title>{{ item.title }}</v-list-item-title>
+						</v-list-item>
+					</v-list>
+				</v-menu>
+			</div>
+			<div class="text-center">
+				<v-menu offset-y>
+					<template v-slot:activator="{ on, attrs }">
+						<v-btn text color="pink" v-bind="attrs" v-on="on">
+							Donde Dormir
+						</v-btn>
+					</template>
+					<v-list>
+						<v-list-item v-for="(item, index) in items" :key="index">
+							<v-list-item-title>{{ item.title }}</v-list-item-title>
+						</v-list-item>
+					</v-list>
+				</v-menu>
+			</div>
 
-			<v-btn icon>
-				<v-icon></v-icon>
-			</v-btn>
+			<div class="text-center ">
+				<v-menu left bottom>
+					<template v-slot:activator="{ on, attrs }">
+						<v-btn class="purple--text " icon v-bind="attrs" v-on="on">
+							<v-icon>mdi-dots-vertical</v-icon>
+						</v-btn>
+					</template>
 
+					<v-list>
+						<v-list-item v-for="n in 2" :key="n" @click="() => {}">
+							<v-list-item-title>Option {{ n }}</v-list-item-title>
+						</v-list-item>
+					</v-list>
+				</v-menu>
+			</div>
 		</v-app-bar>
 
 		<!-- Sizes your content based upon application components -->
@@ -45,17 +73,17 @@
 			</v-container>
 		</v-main>
 
-		<v-footer app color="white teal--text" >
-			<v-card flat tile class="white teal--text text--lighten-1 text-center">
+		<v-footer color="white purple--text">
+			<v-card flat tile class="white purple--text text--lighten-1 text-center">
 				<v-card-text>
-					<v-btn v-for="icon in icons" :key="icon" class="mx-4 teal--text" icon>
+					<v-btn v-for="icon in icons" :key="icon" class="purple--text" icon>
 						<v-icon size="24px">
 							{{ icon }}
 						</v-icon>
 					</v-btn>
 				</v-card-text>
 
-				<v-card-text class="mx-4 teal--text pt-0">
+				<v-card-text class="mx-4 purple--text pt-0">
 					Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet. Mauris cursus commodo interdum.
 					Praesent ut risus eget metus luctus accumsan id ultrices nunc. Sed at orci sed massa consectetur
 					dignissim a sit amet dui. Duis commodo vitae velit et faucibus. Morbi vehicula lacinia malesuada.
@@ -66,7 +94,7 @@
 
 				<v-divider></v-divider>
 
-				<v-card-text class="mx-4 teal--text">
+				<v-card-text class="mx-4 purple--text">
 					{{ new Date().getFullYear() }} — <strong>Vuetify</strong>
 				</v-card-text>
 			</v-card>
@@ -77,20 +105,15 @@
 <script>
 export default {
 	data: () => ({
-		drawer: false,
-		group: null,
+		items: [{ title: 'Click Me' }, { title: 'Click Me' }, { title: 'Click Me' }, { title: 'Click Me 2' }],
 		icons: ['mdi-facebook', 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram'],
 	}),
-
-	watch: {
-		group() {
-			this.drawer = false;
-		},
-	},
 };
 </script>
 
-
-<style >
-
+<style>
+.theme--light.v-tabs > .v-tabs-bar .v-tab:not(.v-tab--active) {
+	color: 'purple accent-3';
+	font-family: 'Raleway', sans-serif;
+}
 </style>

@@ -1,27 +1,23 @@
 <template>
 	<div>
-		<v-parallax
-			dark
-			height="1000"
-			src="https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/v1555352156/shape/mentalfloss/istock_000056850756_small.jpg?itok=1lz6dqnS"
-		>
-			<v-row align="center" justify="center">
-				<v-col class="text-center" cols="12">
-					<h1 class="display-1 font-weight-thin mb-4">
-						Turismo Buenos Aires
-					</h1>
-					<h4 class="subheading">
-						Todo lo que necesitas saber
-					</h4>
-				</v-col>
-			</v-row>
-		</v-parallax>
+		<div class="pa-10 ma-5 text-center">
+			<h1 class=" title pink--text">Imperdibles</h1>
+			<br />
+			<h3 class=" pink--text">
+				Si disponés de poco tiempo para visitar la ciudad, <br />
+				te proponemos algunos atractivos que no podés perderte. ¡Disfrutá de una experiencia completa!
+			</h3>
+		</div>
+
+		<template>
+			<v-parallax src="https://aws.traveler.es/prod/designs/v1/assets/940x630/73836.jpg"></v-parallax>
+		</template>
 
 		<v-main>
 			<!-- Provides the application the proper gutter -->
 			<v-container fluid>
 				<GridUno />
-        	<Experiencias />
+				<Experiencias />
 				<router-view></router-view>
 			</v-container>
 		</v-main>
@@ -32,15 +28,19 @@
 import GridUno from '@/components/GridUno.vue';
 import Experiencias from '@/components/Experiencias.vue';
 
-
 export default {
 	name: 'Home',
 	components: {
-    GridUno,
-    Experiencias
+		GridUno,
+		Experiencias,
 	},
-	data: () => ({
-		alignments: ['start', 'center', 'end'],
-	}),
+	data: () => ({}),
 };
 </script>
+
+<style>
+.v-application .title{
+  font-size: 60px !important;
+  font-weight: black
+}
+</style>
