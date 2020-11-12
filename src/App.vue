@@ -6,7 +6,7 @@
 			<v-spacer></v-spacer>
 
 			<div class="botones_Nav">
-				<router-link :to="{ name: 'Carrito' }">
+				<router-link :to="{ name: 'Login' }">
 					<v-btn><v-icon color="pink"> mdi-account</v-icon></v-btn>
 				</router-link>
 				<router-link :to="{ name: 'Carrito' }">
