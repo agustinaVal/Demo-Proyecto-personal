@@ -1,6 +1,6 @@
 <template>
 	<v-container>
-		<h1 align="center">Nuestros Clientes</h1>
+		<h1 align="center">Experiencias de nuestros clientes</h1>
 		<v-row>
 			<v-col cols="6" md="3" v-for="n in 4" :key="n">
 				<template>

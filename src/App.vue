@@ -1,67 +1,17 @@
 <template>
-	<v-app>
+	<v-app id="app">
 		<v-app-bar app color="white" class="pink--text " permanent elevate-on-scroll>
 			<v-img lazy-src="./assets/tango.png" max-height="40" max-width="30" src="./assets/tango.png"></v-img>
-			<v-toolbar-title class="mx-5">Baireando</v-toolbar-title>
+			<router-link :to="{ name: 'Home' }" class="mx-5">Baireando</router-link>
 			<v-spacer></v-spacer>
 
-			<div class="text-center">
-				<v-menu offset-y>
-					<template v-slot:activator="{ on, attrs }">
-						<v-btn text color="pink" v-bind="attrs" v-on="on">
-							Que ver
-						</v-btn>
-					</template>
-					<v-list>
-						<v-list-item v-for="(item, index) in items" :key="index">
-							<v-list-item-title>{{ item.title }}</v-list-item-title>
-						</v-list-item>
-					</v-list>
-				</v-menu>
-			</div>
-			<div c>
-				<v-menu offset-y>
-					<template v-slot:activator="{ on, attrs }">
-						<v-btn text color="pink" v-bind="attrs" v-on="on">
-							Que comer
-						</v-btn>
-					</template>
-					<v-list>
-						<v-list-item v-for="(item, index) in items" :key="index">
-							<v-list-item-title>{{ item.title }}</v-list-item-title>
-						</v-list-item>
-					</v-list>
-				</v-menu>
-			</div>
-			<div class="text-center">
-				<v-menu offset-y>
-					<template v-slot:activator="{ on, attrs }">
-						<v-btn text color="pink" v-bind="attrs" v-on="on">
-							Donde Dormir
-						</v-btn>
-					</template>
-					<v-list>
-						<v-list-item v-for="(item, index) in items" :key="index">
-							<v-list-item-title>{{ item.title }}</v-list-item-title>
-						</v-list-item>
-					</v-list>
-				</v-menu>
-			</div>
-
-			<div class="text-center ">
-				<v-menu left bottom>
-					<template v-slot:activator="{ on, attrs }">
-						<v-btn class="purple--text " icon v-bind="attrs" v-on="on">
-							<v-icon>mdi-dots-vertical</v-icon>
-						</v-btn>
-					</template>
-
-					<v-list>
-						<v-list-item v-for="n in 2" :key="n" @click="() => {}">
-							<v-list-item-title>Option {{ n }}</v-list-item-title>
-						</v-list-item>
-					</v-list>
-				</v-menu>
+			<div class="botones_Nav">
+				<router-link :to="{ name: 'Carrito' }">
+					<v-btn><v-icon color="pink"> mdi-account</v-icon></v-btn>
+				</router-link>
+				<router-link :to="{ name: 'Carrito' }">
+				<v-btn>	<v-icon color="pink"> mdi-cart</v-icon></v-btn>
+				</router-link>
 			</div>
 		</v-app-bar>
 
@@ -105,15 +55,16 @@
 <script>
 export default {
 	data: () => ({
-		items: [{ title: 'Click Me' }, { title: 'Click Me' }, { title: 'Click Me' }, { title: 'Click Me 2' }],
 		icons: ['mdi-facebook', 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram'],
 	}),
 };
 </script>
 
 <style>
-.theme--light.v-tabs > .v-tabs-bar .v-tab:not(.v-tab--active) {
-	color: 'purple accent-3';
+#app {
 	font-family: 'Raleway', sans-serif;
+}
+.botones_Nav {
+	text-decoration: none;
 }
 </style>
