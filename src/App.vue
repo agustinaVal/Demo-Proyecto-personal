@@ -10,7 +10,7 @@
 					<v-btn><v-icon color="pink"> mdi-account</v-icon></v-btn>
 				</router-link>
 				<router-link :to="{ name: 'Carrito' }">
-				<v-btn>	<v-icon color="pink"> mdi-cart</v-icon></v-btn>
+					<v-btn> <v-icon color="pink"> mdi-cart</v-icon></v-btn>
 				</router-link>
 			</div>
 		</v-app-bar>
@@ -53,10 +53,17 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
 	data: () => ({
 		icons: ['mdi-facebook', 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram'],
 	}),
+	methods: {
+		...mapActions(['getData']),
+	},
+	created() {
+		this.getData();
+	},
 };
 </script>
 
