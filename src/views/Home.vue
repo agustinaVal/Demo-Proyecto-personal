@@ -15,8 +15,8 @@
 
 		<v-main>
 			<!-- Provides the application the proper gutter -->
-			<v-container fluid>
-				<GridUno />
+			<v-container >
+				<Cards />
 				<Experiencias />
 				<Valoracion />
 				<router-view></router-view>
@@ -26,17 +26,24 @@
 </template>
 
 <script>
-import GridUno from '@/components/GridUno.vue';
+import Cards from '@/components/Cards.vue';
 import Experiencias from '@/components/Experiencias.vue';
 import Valoracion from '@/components/Valoracion.vue';
+import { mapState } from 'vuex';
 export default {
 	name: 'Home',
 	components: {
-		GridUno,
+		Cards,
 		Experiencias,
 		Valoracion,
 	},
 	data: () => ({}),
+	computed: {
+		...mapState(['excursiones'])
+	},
+	props:{
+
+	}
 };
 </script>
 
