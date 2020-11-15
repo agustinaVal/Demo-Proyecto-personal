@@ -1,9 +1,7 @@
 <template>
 	<v-container>
-		<h1 align="center">Que Ver</h1>
-		<v-row>
-			<v-col cols="6" md="3" v-for="n in 4" :key="n">
-				<template>
+		
+		<template>
 					<v-card class="mx-auto my-12" max-width="374">
 						<template slot="progress">
 							<v-progress-linear color="deep-purple" height="10" indeterminate></v-progress-linear>
@@ -45,8 +43,6 @@
 						</v-card-actions>
 					</v-card>
 				</template>
-			</v-col>
-		</v-row>
 	</v-container>
 </template>
 
