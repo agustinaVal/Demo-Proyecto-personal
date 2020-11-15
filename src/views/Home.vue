@@ -43,6 +43,7 @@ import Valoracion from "@/components/Valoracion.vue";
 import { mapState } from "vuex";
 export default {
   name: "Home",
+  
   components: {
     Cards,
     Experiencias,
