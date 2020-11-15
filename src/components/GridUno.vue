@@ -1,7 +1,7 @@
 <template>
 	<v-container>
-	<h1 align="center" >Que Ver </h1>
-		<v-row >
+		<h1 align="center">Que Ver</h1>
+		<v-row>
 			<v-col cols="6" md="3" v-for="n in 4" :key="n">
 				<template>
 					<v-card class="mx-auto my-12" max-width="374">
@@ -56,7 +56,7 @@
 						</v-card-text>
 
 						<v-card-actions>
-							<v-btn color="deep-purple lighten-2" text >
+							<v-btn color="deep-purple lighten-2" text>
 								Reservar
 							</v-btn>
 						</v-card-actions>

@@ -2,7 +2,7 @@
 	<div class="login">
 		<form @submit.prevent="login" class="form">
 			<h4>Ingrese agregando tus credenciales</h4>
-			<hr>
+			<hr />
 			<input v-model="usuario" type="text" placeholder="Correo" />
 			<input v-model="contrasena" type="password" placeholder="Clave" />
 
@@ -56,7 +56,7 @@ export default {
 	padding: 20px;
 	margin: 20px;
 }
-.form  input{
+.form input {
 	width: 400px;
 	padding: 10px;
 	border-radius: 5px;
