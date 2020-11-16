@@ -1,12 +1,17 @@
 <template>
-	<div>
+	<div fluid>
 		<template>
 			<v-data-table :headers="headers" :items="excursionData" class="elevation-1">
-				<template v-slot:item.calories="{ item }">
-					<v-chip :color="getColor(item.calories)" dark>
-						{{ item.calories }}
-					</v-chip>
+				<template v-slot:item.img="{ item }">
+					<img width="130" :src="item.img" />
 				</template>
+                <template v-slot:item.time="{ item }">
+            <ul>
+              <li v-for="(time, i) in item.time" :key="i">
+                {{ time }}
+              </li>
+            </ul>
+          </template>
 			</v-data-table>
 		</template>
 	</div>
@@ -20,12 +25,12 @@ export default {
 		return {
 			headers: [
 				{
-					text: 'Nombre',
 					align: 'start',
 					value: 'name',
-				},
-				{ text: 'Imagen', value: 'img' },
-				{ text: 'Nombre', value: 'title' },
+                },
+                { text: 'Nombre', value: 'title' },
+                { text: 'Imagen', value: 'img' },
+                { text: 'Descripcion', value: 'description' },
 				{ text: 'Precios', value: 'price' },
 				{ text: 'Stock', value: 'stock' },
 				{ text: 'Horario', value: 'time' },
@@ -45,3 +50,10 @@ export default {
 	},
 };
 </script>
+
+<style lang="scss">
+ul {
+  padding: 10px;
+  list-style: none;
+}
+</style>
