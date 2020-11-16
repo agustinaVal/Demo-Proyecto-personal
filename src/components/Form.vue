@@ -1,12 +1,12 @@
 <template>
 	<v-form ref="form">
-		<v-text-field v-model="excursionData.title" label="Nombre" required></v-text-field>
-		<v-text-field v-model="excursionData.img" label="Dirección de la imagen" required></v-text-field>
-		<v-text-field v-model="excursionData.description" label="Descripcion" required></v-text-field>
-		<v-text-field v-model="excursionData.price" label="Precios" required></v-text-field>
-		<v-text-field v-model="excursionData.stock" label="Stock" required></v-text-field>
+		<v-text-field v-model="excursion.title" label="Nombre" required></v-text-field>
+		<v-text-field v-model="excursion.img" label="Dirección de la imagen" required></v-text-field>
+		<v-text-field v-model="excursion.description" label="Descripcion" required></v-text-field>
+		<v-text-field v-model="excursion.price" label="Precios" required></v-text-field>
+		<v-text-field v-model="excursion.stock" label="Stock" required></v-text-field>
 		<v-text-field  
-         v-model="excursionData.time"   label="Horario" required></v-text-field>
+         v-model="excursion.time"   label="Horario" required></v-text-field>
 <v-text-field
       v-for="(horario, i) in excursion.time"
       :key="i"
@@ -30,7 +30,14 @@
     <br />
     <br />
 
-		
+		<template>
+			<v-btn color="primary" class="mr-4">
+				Agregar pizza
+			</v-btn>
+			<v-btn color="yellow" class="mr-4" >
+				editar pizza
+			</v-btn>
+		</template>
 	</v-form>
 </template>
 
