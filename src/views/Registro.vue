@@ -1,59 +1,72 @@
 <template>
-	<div fluid>
-		<template>
-			<v-data-table :headers="headers" :items="excursionData" class="elevation-1">
-				<template v-slot:item.img="{ item }">
-					<img width="130" :src="item.img" />
-				</template>
-                <template v-slot:item.time="{ item }">
-            <ul>
-              <li v-for="(time, i) in item.time" :key="i">
-                {{ time }}
-              </li>
-            </ul>
-          </template>
-			</v-data-table>
-		</template>
-	</div>
+  <div id="Registro">
+    <template>
+      <h1>Registro de ventas</h1>
+      <br />
+      <v-data-table
+        :headers="headers"
+        :items="excursionData"
+        class="elevation-1"
+      >
+        <template v-slot:item.img="{ item }">
+          <img width="130" :src="item.img" />
+        </template>
+        <template v-slot:item.time="{ item }">
+          <v-select :items="item.time" label="Seleccionar"></v-select>
+        </template>
+        <template v-slot:item.acciones="{ item }">
+          <v-btn color="warning" fab small dark @click="pizzaUpdate(item.id)">
+            <v-icon>mdi-pencil</v-icon>
+          </v-btn>
+          <v-btn color="red" fab small dark @click="deletePizza(item.id)">
+            <v-icon>mdi-delete</v-icon>
+          </v-btn>
+        </template>
+      </v-data-table>
+      <Form />
+    </template>
+  </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import Form from "@/components/Form";
+import { mapGetters } from "vuex";
 export default {
-	name: 'Registro',
-	data() {
-		return {
-			headers: [
-				{
-					align: 'start',
-					value: 'name',
-                },
-                { text: 'Nombre', value: 'title' },
-                { text: 'Imagen', value: 'img' },
-                { text: 'Descripcion', value: 'description' },
-				{ text: 'Precios', value: 'price' },
-				{ text: 'Stock', value: 'stock' },
-				{ text: 'Horario', value: 'time' },
-				{ text: 'Acciones', value: 'acciones' },
-			],
-		};
-	},
-	methods: {
-		getColor(calories) {
-			if (calories > 400) return 'red';
-			else if (calories > 200) return 'orange';
-			else return 'green';
-		},
-	},
-	computed: {
-		...mapGetters(['excursionData']),
-	},
+  name: "Registro",
+  data() {
+    return {
+      headers: [
+        {
+          align: "start",
+          value: "name",
+        },
+        { text: "Nombre", value: "title" },
+        { text: "Imagen", value: "img" },
+        { text: "Descripcion", value: "description" },
+        { text: "Precios", value: "price" },
+        { text: "Stock", value: "stock" },
+        { text: "Horario", value: "time" },
+        { text: "Acciones", value: "acciones" },
+      ],
+    };
+  },
+  components: {
+    Form,
+  },
+  methods: {},
+  computed: {
+    ...mapGetters(["excursionData"]),
+  },
 };
 </script>
 
 <style lang="scss">
+#Registro {
+  margin-top: 50px;
+  font-size: 10px;
+}
+
 ul {
   padding: 10px;
-  list-style: none;
 }
 </style>

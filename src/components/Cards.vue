@@ -19,7 +19,7 @@
 				<v-divider class="mx-4"></v-divider>
 
 				<v-card-text>
-					<v-card-subtitle> Horarios </v-card-subtitle>
+					<v-card-subtitle> Horarios Disponibles </v-card-subtitle>
 					<v-chip-group active-class="deep-purple accent-4 white--text" column>
 						<v-chip>{{ excursion.data.time[0] }}</v-chip>
 
