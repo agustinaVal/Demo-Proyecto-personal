@@ -59,17 +59,16 @@ export default {
 		...mapGetters(['excursionData']),
 	},
 	methods: {
-        ...mapActions(['nuevoRegistro']),
+		...mapActions(['nuevoRegistro']),
 		add() {
 			this.excursion.time.push('');
 		},
 		Delete() {
 			this.excursion.time.pop();
-        },
-        nuevaExcursion() {
-      this.nuevoRegistro(this.excursion);
-    },
-    },
-    
+		},
+		nuevaExcursion() {
+			this.nuevoRegistro(this.excursion);
+		},
+	},
 };
 </script>

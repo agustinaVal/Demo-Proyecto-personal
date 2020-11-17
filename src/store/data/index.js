@@ -1,18 +1,23 @@
 import firebase from 'firebase';
 
-
 export default {
 	state: {
-        excursiones: [],
+		excursiones: [],
 	},
-	mutations: {
-		
-	},
+	mutations: {},
 	actions: {
-		nuevoRegistro({ commit} , excursion){
-         firebase.firestore().collection("excurciones").add(excursion)
-         
-        }
+		nuevoRegistro({ commit }, excursion) {
+			firebase
+				.firestore()
+				.collection('excurciones')
+				.add(excursion);
+		},
+		deleteExcursionFB({ commit }, id) {
+			firebase
+				.firestore()
+				.collection('excurciones')
+				.doc(id)
+				.delete();
+		},
 	},
-	
-}
+};
