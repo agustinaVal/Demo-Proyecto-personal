@@ -9,9 +9,10 @@ export default {
 		
 	},
 	actions: {
-		
+		nuevoRegistro({ commit} , excursion){
+         firebase.firestore().collection("excurciones").add(excursion)
+         
+        }
 	},
-	getters: {
-		
-	},
+	
 }

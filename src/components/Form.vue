@@ -29,7 +29,7 @@
 		<br />
 
 		<template>
-			<v-btn color="primary" class="mr-4">
+			<v-btn color="primary" class="mr-4" @click="nuevaExcursion">
 				Agregar
 			</v-btn>
 			<v-btn color="success" class="mr-4">
@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 export default {
 	name: 'Form',
 	time: [],
@@ -59,12 +59,17 @@ export default {
 		...mapGetters(['excursionData']),
 	},
 	methods: {
+        ...mapActions(['nuevoRegistro']),
 		add() {
 			this.excursion.time.push('');
 		},
 		Delete() {
 			this.excursion.time.pop();
-		},
-	},
+        },
+        nuevaExcursion() {
+      this.nuevoRegistro(this.excursion);
+    },
+    },
+    
 };
 </script>
