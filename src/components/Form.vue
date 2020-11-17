@@ -29,10 +29,10 @@
 		<br />
 
 		<template>
-			<v-btn color="primary" class="mr-4" @click="nuevaExcursion">
+			<v-btn v-show="!edit" color="primary" class="mr-4" @click="nuevaExcursion">
 				Agregar
 			</v-btn>
-			<v-btn color="success" class="mr-4">
+			<v-btn  v-show="edit" color="yellow" class="mr-4" @click="editExcursion">
 				Editar
 			</v-btn>
 		</template>
@@ -43,7 +43,8 @@
 import { mapActions, mapGetters } from 'vuex';
 export default {
 	name: 'Form',
-	time: [],
+    time: [],
+    props: [ "excursionD",  "edit"],
 	data: () => ({
 		excursion: {
 			title: '',
@@ -59,7 +60,7 @@ export default {
 		...mapGetters(['excursionData']),
 	},
 	methods: {
-		...mapActions(['nuevoRegistro']),
+		...mapActions(['nuevoRegistro' , 'editExcursionFB']),
 		add() {
 			this.excursion.time.push('');
 		},
@@ -68,7 +69,12 @@ export default {
 		},
 		nuevaExcursion() {
 			this.nuevoRegistro(this.excursion);
-		},
-	},
+        },
+        editExcursion(){
+            this.editExcursionFB(this.excursion)
+        }
+    },
+    
+    
 };
 </script>

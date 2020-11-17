@@ -3,7 +3,7 @@
 		<template>
 			<h1>Registro</h1>
 			<br />
-			<v-data-table :headers="headers" :items="excursionData" class="elevation-1">
+			<v-data-table :headers="headers" :items="excursionData"  class="elevation-1">
 				<template v-slot:item.img="{ item }">
 					<img width="130" :src="item.img" />
 				</template>
@@ -14,15 +14,32 @@
 					<v-btn color="warning" fab small dark>
 						<v-icon>mdi-pencil</v-icon>
 					</v-btn>
+
 					<v-btn color="red" fab small dark @click="deleteExcursion(item.id)">
 						<v-icon>mdi-delete</v-icon>
 					</v-btn>
+					<v-dialog v-model="dialog" max-width="590">
+						<v-card>
+							<v-card-title class="headline">
+								Editando la actividad 
+							</v-card-title>
+							<v-card-text
+								><Form :excursionD="item" @hideDialog="dialog = false" :edit="true"
+							/></v-card-text>
+						</v-card>
+					</v-dialog>
 				</template>
 			</v-data-table>
 			<Form />
 		</template>
 	</div>
 </template>
+
+
+
+
+
+   
 
 <script>
 import Form from '@/components/Form';
@@ -31,6 +48,7 @@ export default {
 	name: 'Registro',
 	data() {
 		return {
+			dialog: false,
 			headers: [
 				{
 					align: 'start',
