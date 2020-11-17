@@ -8,7 +8,7 @@
 		<v-text-field  
          v-model="excursion.time"   label="Horario" required></v-text-field>
 <v-text-field
-      v-for="(horario, i) in excursion.time"
+      v-for="(time, i) in excursion.time"
       :key="i"
       v-model="excursion.time[i]"
       label="Horario"
@@ -27,15 +27,15 @@
       </v-icon>
     </v-btn>
 
-    <br />
+    <br /> 
     <br />
 
 		<template>
 			<v-btn color="primary" class="mr-4">
-				Agregar pizza
+				Agregar 
 			</v-btn>
-			<v-btn color="yellow" class="mr-4" >
-				editar pizza
+			<v-btn color="succes" class="mr-4" >
+				Editar  
 			</v-btn>
 		</template>
 	</v-form>
@@ -44,7 +44,8 @@
 <script>
 import { mapActions, mapGetters } from 'vuex';
 export default {
-	name: 'Form',
+    name: 'Form',
+    time : [],
 	data: () => ({
 		excursion:{
             title : "",
