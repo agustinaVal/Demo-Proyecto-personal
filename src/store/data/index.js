@@ -2,8 +2,7 @@ import firebase from 'firebase';
 
 export default {
 	state: {
-        excursiones: [],
-        
+		excursiones: [],
 	},
 	mutations: {},
 	actions: {
@@ -19,12 +18,12 @@ export default {
 				.collection('excurciones')
 				.doc(id)
 				.delete();
-        },
-        editExcursionFB({ commit }, excursion) {
+		},
+		editExcursionFB({ commit }, excursion) {
 			firebase
 				.firestore()
-                .collection('excurciones')
-                .doc(excursion.id)
+				.collection('excurciones')
+				.doc(excursion.id)
 				.set(excursion);
 		},
 	},

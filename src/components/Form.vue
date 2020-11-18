@@ -32,7 +32,7 @@
 			<v-btn v-show="!edit" color="primary" class="mr-4" @click="nuevaExcursion">
 				Agregar
 			</v-btn>
-			<v-btn  v-show="edit" color="yellow" class="mr-4" @click="editExcursion">
+			<v-btn v-show="edit" color="yellow" class="mr-4" @click="editExcursion">
 				Editar
 			</v-btn>
 		</template>
@@ -43,17 +43,15 @@
 import { mapActions, mapGetters } from 'vuex';
 export default {
 	name: 'Form',
-    time: [],
-    props: [ "excursion",  "edit"],
-	data: () => ({
-		
-	}),
+	time: [],
+	props: ['excursion', 'edit'],
+	data: () => ({}),
 
 	computed: {
 		...mapGetters(['excursionData']),
 	},
 	methods: {
-		...mapActions(['nuevoRegistro' , 'editExcursionFB']),
+		...mapActions(['nuevoRegistro', 'editExcursionFB']),
 		add() {
 			this.excursion.time.push('');
 		},
@@ -62,12 +60,11 @@ export default {
 		},
 		nuevaExcursion() {
 			this.nuevoRegistro(this.excursion);
-        },
-        editExcursion(){
-            this.editExcursionFB(this.excursion)
-        }
-    },
-    
-    
+		},
+		editExcursion() {
+			this.editExcursionFB(this.excursion);
+			this.$emit('hideDialog');
+		},
+	},
 };
 </script>
