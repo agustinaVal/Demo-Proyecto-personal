@@ -3,6 +3,8 @@
 		<template>
 			<h1>Registro</h1>
 			<br />
+            <Form  :excursion="excursion"  />
+            <br />
 			<v-data-table :headers="headers" :items="excursionData"  class="elevation-1">
 				<template v-slot:item.img="{ item }">
 					<img width="130" :src="item.img" />
@@ -24,13 +26,12 @@
 								Editando la actividad 
 							</v-card-title>
 							<v-card-text
-								><Form :excursionD="item" @hideDialog="dialog = false" :edit="true"
+								><Form :excursion="item"   @hideDialog="dialog = false" :edit="true"
 							/></v-card-text>
 						</v-card>
 					</v-dialog>
 				</template>
 			</v-data-table>
-			<Form />
 		</template>
 	</div>
 </template>
@@ -61,7 +62,15 @@ export default {
 				{ text: 'Stock', value: 'stock' },
 				{ text: 'Horario', value: 'time' },
 				{ text: 'Acciones', value: 'acciones' },
-			],
+            ],
+            excursion: {
+			title: '',
+			img: '',
+			description: '',
+			price: '',
+			stock: '',
+			time: [''],
+		},
 		};
 	},
 	components: {

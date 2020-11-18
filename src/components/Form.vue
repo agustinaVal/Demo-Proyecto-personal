@@ -44,16 +44,9 @@ import { mapActions, mapGetters } from 'vuex';
 export default {
 	name: 'Form',
     time: [],
-    props: [ "excursionD",  "edit"],
+    props: [ "excursion",  "edit"],
 	data: () => ({
-		excursion: {
-			title: '',
-			img: '',
-			description: '',
-			price: '',
-			stock: '',
-			time: [''],
-		},
+		
 	}),
 
 	computed: {
