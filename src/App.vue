@@ -32,7 +32,8 @@ export default {
 #app {
 	font-family: 'Raleway', sans-serif;
 }
-.botones_Nav {
-	text-decoration: none;
+a {
+	text-decoration: none !important;
 }
+
 </style>

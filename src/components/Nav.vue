@@ -1,18 +1,45 @@
 <template>
-    <div>
-    <v-app-bar app color="white" class="pink--text " permanent elevate-on-scroll>
-			<router-link :to="{ name: 'Home' }" class="mx-5">Baireando</router-link>
+	<div>
+		<v-app-bar app color="white" class="pink--text " permanent elevate-on-scroll>
+			<v-app-bar-nav-icon @click.stop="drawer = !drawer" color="pink"></v-app-bar-nav-icon>
 			<v-spacer></v-spacer>
 
-			<div class="botones_Nav">
-				<router-link :to="{ name: 'Login' }">
-					<v-btn><v-icon color="pink"> mdi-account</v-icon></v-btn>
-				</router-link>
+			<div>
 				<router-link :to="{ name: 'Carrito' }">
-					<v-btn> <v-icon color="pink"> mdi-cart</v-icon></v-btn>
+					<v-icon color="pink" medium> mdi-cart</v-icon>
 				</router-link>
 			</div>
 		</v-app-bar>
-        
-    </div>
+		<v-navigation-drawer v-model="drawer" absolute temporary>
+			<v-list nav dense>
+				<v-list-item-group active-class="pink--text text--accent-4">
+					<v-list-item :to="{ name: 'Home' }">
+						<v-list-item-title> <v-icon> mdi-home</v-icon> Home </v-list-item-title>
+					</v-list-item>
+					<v-list-item :to="{ name: 'Usuario' }">
+						<v-list-item-title >
+							<v-icon> mdi-pencil</v-icon>Sing In</v-list-item-title
+						>
+					</v-list-item>
+					<v-list-item :to="{ name: 'Login' }">
+						<v-list-item-title> <v-icon> mdi-account</v-icon>Log In</v-list-item-title>
+					</v-list-item>
+
+					<v-list-item>
+						<v-list-item-title><v-icon> mdi-arrow-up-bold-box-outline</v-icon>Log Out</v-list-item-title>
+					</v-list-item>
+				</v-list-item-group>
+			</v-list>
+		</v-navigation-drawer>
+	</div>
 </template>
+
+<script>
+export default {
+	data: () => ({
+		drawer: false,
+	}),
+
+	computed: {},
+};
+</script>
