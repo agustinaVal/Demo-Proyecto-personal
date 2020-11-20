@@ -8,6 +8,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
 	state: {
 		excursiones: [],
+		usuario: {},
 	},
 	mutations: {
 		GET_DATA(state, excursiones) {
@@ -30,6 +31,22 @@ export default new Vuex.Store({
 					commit('GET_DATA', excursiones);
 				});
 		},
+		addUser(context, user) {
+			firebase
+			  .auth()
+			  .createUserWithEmailAndPassword(user.email, user.password)
+			  .then(() => {
+				const usuario = Object.assign({}, user);
+				delete usuario.password;
+				firebase
+				  .firestore()
+				  .collection("users")
+				  .add(usuario)
+				  .then(() => {
+					context.dispatch("login", user);
+				  });
+			  });
+		  },
 	},
 	getters: {
 		excursionData: (state) => {
@@ -44,4 +61,5 @@ export default new Vuex.Store({
 	modules: {
 		data,
 	},
+	
 });

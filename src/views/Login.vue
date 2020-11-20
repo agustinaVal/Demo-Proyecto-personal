@@ -1,7 +1,7 @@
 <template>
 	<div class="login">
 		<form @submit.prevent="login" class="form">
-			<h4>Ingrese agregando tus credenciales</h4>
+			<h1>Ingrese agregando tus credenciales</h1>
 			<hr />
 			<input v-model="usuario" type="text" placeholder="Correo" />
 			<input v-model="contrasena" type="password" placeholder="Clave" />
