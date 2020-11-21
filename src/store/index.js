@@ -31,20 +31,19 @@ export default new Vuex.Store({
 					commit('GET_DATA', excursiones);
 				});
 		},
-		addUser(context, user) {
+		addUser({ commit }, user) {
 			firebase
 			  .auth()
 			  .createUserWithEmailAndPassword(user.email, user.password)
 			  .then(() => {
-				const usuario = Object.assign({}, user);
+				const usuario =  user
 				delete usuario.password;
 				firebase
 				  .firestore()
 				  .collection("users")
 				  .add(usuario)
-				  .then(() => {
-					context.dispatch("login", user);
-				  });
+				  
+			
 			  });
 		  },
 	},
