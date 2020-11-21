@@ -1,6 +1,7 @@
 <template>
 	<v-form ref="form">
 		<v-text-field v-model="excursion.title" label="Nombre" required></v-text-field>
+		<v-text-field v-model="excursion.subtitle" label="Sub-titulo" required></v-text-field>
 		<v-text-field v-model="excursion.img" label="Dirección de la imagen" required></v-text-field>
 		<v-text-field v-model="excursion.description" label="Descripcion" required></v-text-field>
 		<v-text-field v-model="excursion.price" label="Precios" required></v-text-field>

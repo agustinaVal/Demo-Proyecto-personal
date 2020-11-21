@@ -14,6 +14,9 @@ export default new Vuex.Store({
 		GET_DATA(state, excursiones) {
 			state.excursiones = excursiones;
 		},
+		LOGIN(state, usuario) {
+			state.usuario = usuario;
+		},
 	},
 	actions: {
 		getData({ commit }) {
@@ -31,21 +34,52 @@ export default new Vuex.Store({
 					commit('GET_DATA', excursiones);
 				});
 		},
-		addUser({ commit }, user) {
+		addUser(context, user) {
 			firebase
-			  .auth()
-			  .createUserWithEmailAndPassword(user.email, user.password)
-			  .then(() => {
-				const usuario =  user
-				delete usuario.password;
-				firebase
-				  .firestore()
-				  .collection("users")
-				  .add(usuario)
-				  
-			
-			  });
-		  },
+				.auth()
+				.createUserWithEmailAndPassword(user.email, user.password)
+				.then(() => {
+					const usuario = Object.assign({}, user);
+					delete usuario.password;
+					firebase
+						.firestore()
+						.collection('users')
+						.add(usuario)
+						.then(() => {
+							context.dispatch('login', user);
+						});
+				});
+		},
+		async login({ commit }, usuario) {
+			try {
+				const user = await firebase.auth().signInWithEmailAndPassword(usuario.email, usuario.password);
+
+				const snapshot = await firebase
+					.firestore()
+					.collection('users')
+					.where('email', '==', usuario.email)
+					.get();
+
+				snapshot.forEach((doc) => {
+					commit('LOGIN', doc.data());
+				});
+
+				return true;
+			} catch (e) {
+				console.log(e);
+				return false;
+			}
+		},
+
+		async logout({ commit }) {
+			try {
+				await firebase.auth().signOut();
+				commit('LOGOUT');
+				return true;
+			} catch (e) {
+				return false;
+			}
+		},
 	},
 	getters: {
 		excursionData: (state) => {
@@ -60,5 +94,4 @@ export default new Vuex.Store({
 	modules: {
 		data,
 	},
-	
 });

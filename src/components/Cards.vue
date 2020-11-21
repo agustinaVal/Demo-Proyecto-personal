@@ -20,7 +20,7 @@
 
 				<v-card-text>
 					<v-card-subtitle> Horarios Disponibles </v-card-subtitle>
-					<v-chip-group active-class="deep-purple accent-4 white--text" column>
+					<v-chip-group active-class="pink accent-4 white--text" column>
 						<v-chip>{{ excursion.data.time[0] }}</v-chip>
 
 						<v-chip>{{ excursion.data.time[1] }}</v-chip>
@@ -34,7 +34,7 @@
 				<v-card-title> ${{ excursion.data.price }}</v-card-title>
 
 				<v-card-actions>
-					<v-btn color="deep-purple lighten-2" text>
+					<v-btn color="pink lighten-2" text>
 						Comprar
 					</v-btn>
 				</v-card-actions>

@@ -5,6 +5,13 @@
 			<v-spacer></v-spacer>
 
 			<div>
+				<v-chip class="ma-2" color="pink" text-color="white">
+					<v-avatar left>
+						<v-icon>mdi-account-circle</v-icon>
+					</v-avatar>
+					{{ usuario.name }}
+				</v-chip>
+
 				<router-link :to="{ name: 'Carrito' }">
 					<v-icon color="pink" medium> mdi-cart</v-icon>
 				</router-link>
@@ -17,9 +24,7 @@
 						<v-list-item-title> <v-icon> mdi-home</v-icon> Home </v-list-item-title>
 					</v-list-item>
 					<v-list-item :to="{ name: 'Usuario' }">
-						<v-list-item-title >
-							<v-icon> mdi-pencil</v-icon>Sing In</v-list-item-title
-						>
+						<v-list-item-title> <v-icon> mdi-pencil</v-icon>Sing In</v-list-item-title>
 					</v-list-item>
 					<v-list-item :to="{ name: 'Login' }">
 						<v-list-item-title> <v-icon> mdi-account</v-icon>Log In</v-list-item-title>
@@ -35,11 +40,15 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
 	data: () => ({
 		drawer: false,
+	
 	}),
 
-	computed: {},
+	computed: {
+		...mapState(['usuario']),
+	},
 };
 </script>

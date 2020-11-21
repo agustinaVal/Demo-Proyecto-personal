@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import firebase from 'firebase';
 export default {
 	name: 'Login',
@@ -30,7 +31,7 @@ export default {
 				.auth()
 				.signInWithEmailAndPassword(this.usuario, this.contrasena)
 				.then(
-					(user) => this.$router.replace('/'),
+					(user) => this.$router.replace('/registro'),
 					(error) => console.error(error)
 				);
 		},
@@ -40,9 +41,12 @@ export default {
 				.auth()
 				.signInWithPopup(provider)
 				.then((result) => {
-					this.$router.replace('/');
+					this.$router.replace('/registro');
 				});
 		},
+	},
+	computed: {
+		...mapState(['usuario']),
 	},
 };
 </script>
