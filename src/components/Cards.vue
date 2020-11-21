@@ -1,9 +1,9 @@
 <template>
 	<v-container>
 		<template>
-			<v-card class="mx-auto my-12" >
+			<v-card class="mx-auto my-12">
 				<template slot="progress">
-					<v-progress-linear color="deep-purple" height="10" ></v-progress-linear>
+					<v-progress-linear color="deep-purple" height="10"></v-progress-linear>
 				</template>
 
 				<v-img height="250" :src="excursion.data.img"></v-img>
@@ -34,7 +34,7 @@
 				<v-card-title> ${{ excursion.data.price }}</v-card-title>
 
 				<v-card-actions>
-					<v-btn color="pink lighten-2" text>
+					<v-btn color="pink" text @click="agregarAlCarrito(excursion.id)">
 						Comprar
 					</v-btn>
 				</v-card-actions>
@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 export default {
 	name: 'Cards',
 	props: ['excursion'],
@@ -54,6 +54,9 @@ export default {
 	}),
 	computed: {
 		...mapState(['excursiones']),
+	},
+	methods: {
+		...mapActions('Carrito', ['agregarAlCarrito']),
 	},
 };
 </script>
