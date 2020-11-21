@@ -2,11 +2,8 @@
 	<div>
 		<v-form ref="form" lazy-validation>
 			<v-text-field v-model="user.name" label="Nombre Completo" required></v-text-field>
-
 			<v-text-field v-model="user.email" label="E-mail" required></v-text-field>
-
 			<v-text-field v-model="user.direccion" label="Dirección" required></v-text-field>
-
 			<v-text-field
 				v-model="user.password"
 				:append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"

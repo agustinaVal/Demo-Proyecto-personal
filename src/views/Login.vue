@@ -1,11 +1,10 @@
 <template>
 	<div class="login">
 		<form @submit.prevent="login" class="form">
-			<h1>Ingrese agregando tus credenciales</h1>
+			<h1>Iniciar sesión</h1>
 			<hr />
 			<input v-model="usuario" type="text" placeholder="Correo" />
 			<input v-model="contrasena" type="password" placeholder="Clave" />
-
 			<div class="my-2">
 				<v-btn @click="login" color="success" dark large class="mx-5"> Ingresar </v-btn>
 				<v-btn @click="logInGoogle" color="error" dark large> Login con Gmail </v-btn>

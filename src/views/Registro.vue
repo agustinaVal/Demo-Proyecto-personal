@@ -2,21 +2,17 @@
 	<div id="Registro">
 		<template>
 			<h1>Registro</h1>
-			<br />
+			<br/>
 			<Form :excursion="excursion" />
 			<br />
 			<v-data-table :headers="headers" :items="excursionData" class="elevation-1">
 				<template v-slot:item.img="{ item }">
 					<img width="130" :src="item.img" />
 				</template>
-				<template v-slot:item.time="{ item }">
-					<v-select :items="item.time" label="Seleccionar"></v-select>
-				</template>
 				<template v-slot:item.acciones="{ item }">
 					<v-btn color="warning" fab small dark @click="excuUpdate(item.id)">
 						<v-icon>mdi-pencil</v-icon>
 					</v-btn>
-
 					<v-btn color="red" fab small dark @click="deleteExcursion(item.id)">
 						<v-icon>mdi-delete</v-icon>
 					</v-btn>
@@ -55,7 +51,6 @@ export default {
 				{ text: 'SubTitulo', value: 'subtitle' },
 				{ text: 'Precios', value: 'price' },
 				{ text: 'Stock', value: 'stock' },
-				{ text: 'Horario', value: 'time' },
 				{ text: 'Acciones', value: 'acciones' },
 			],
 			excursion: {
@@ -65,7 +60,6 @@ export default {
 				subtitle: '',
 				price: '',
 				stock: '',
-				time: [''],
 			},
 			excuEdit: {},
 		};
