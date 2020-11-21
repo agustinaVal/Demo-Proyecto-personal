@@ -1,6 +1,3 @@
-
-
-
 <template>
   <div class="home">
     <v-container>
