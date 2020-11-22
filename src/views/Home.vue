@@ -4,17 +4,17 @@
 			<div class="pa-10 ma-5 text-center">
 				<h1 class="title pink--text">Imperdibles</h1>
 				<br />
-				<h3 class="pink--text">
+				<h2 class="pink--text">
 					Si disponés de poco tiempo para visitar la ciudad, <br />
 					te proponemos algunos atractivos que no podés perderte. ¡Disfrutá de una experiencia completa!
-				</h3>
+				</h2>
 			</div>
 			<template>
 				<v-parallax src="https://aws.traveler.es/prod/designs/v1/assets/940x630/73836.jpg"></v-parallax>
 			</template>
 
 			<div class="ma-2 text-center">
-				<h1>Que Ver</h1>
+				<h3>Que Ver</h3>
 				<v-row>
 					<v-col cols="6" md="3" v-for="(excursion, i) in excursiones" :key="i"
 						><Cards :excursion="excursion"
@@ -23,7 +23,7 @@
 			</div>
 
 			<div class="ma-2 text-center">
-				<h1>Donde Alojarse</h1>
+				<h3>Donde dormir</h3>
 				<v-row>
 					<v-col cols="6" md="3" v-for="(alojamiento, i) in alojamientos" :key="i">
 						<Experiencias :alojamiento="alojamiento"
@@ -31,7 +31,12 @@
 				</v-row>
 			</div>
 
-			<Valoracion />
+			<div class="ma-5 text-center">
+				<h3>Galeria de imagenes</h3>
+				<Galeria />
+			</div>
+
+			
 			<Footer />
 		</v-container>
 	</div>
@@ -40,7 +45,7 @@
 <script>
 import Cards from '@/components/Cards.vue';
 import Experiencias from '@/components/Experiencias.vue';
-import Valoracion from '@/components/Valoracion.vue';
+import Galeria from '@/components/Galeria.vue';
 import Footer from '@/components/Footer.vue';
 import { mapState } from 'vuex';
 export default {
@@ -48,7 +53,7 @@ export default {
 	components: {
 		Cards,
 		Experiencias,
-		Valoracion,
+		Galeria,
 		Footer,
 	},
 	data: () => ({}),
