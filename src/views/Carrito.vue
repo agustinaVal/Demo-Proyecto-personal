@@ -9,11 +9,10 @@
 								<v-card-title class="headline">{{ item.title }}</v-card-title>
 								<v-card-subtitle>Sub-Total: ${{ item.price }}</v-card-subtitle>
 								<v-card-subtitle>
-									<v-btn fab small > <v-icon>mdi-minus</v-icon></v-btn>
+									<v-btn fab small @click="MINUS(item.id)"> <v-icon>mdi-minus</v-icon></v-btn>
 									{{ item.cant }}
-									<v-btn fab small 
-										><v-icon>mdi-plus</v-icon>
-									</v-btn></v-card-subtitle
+									<v-btn fab small @click="PLUS(item.id)"><v-icon>mdi-plus</v-icon></v-btn>
+									</v-card-subtitle
 								>
 							</div>
 							<v-avatar class="ma-3" size="125" tile>
@@ -36,7 +35,7 @@
 </template>
 
 <script>
-import { mapGetters, mapState, mapMutations } from 'vuex';
+import { mapGetters, mapState, mapActions, mapMutations } from 'vuex';
 export default {
 	name: 'Carrito',
 	data: () => ({
@@ -44,10 +43,10 @@ export default {
 	}),
 	computed: {
 		...mapState('Carrito', ['carrito']),
-	
+		...mapGetters('Carrito', ['total']),
 	},
 	methods: {
-		
+		...mapMutations('Carrito', ['MINUS' , 'PLUS']),
 	},
 };
 </script>
