@@ -1,7 +1,8 @@
 <template>
 	<div>
-		<v-app-bar app color="white" class=" nav_bar pink--text px-16 " permanent elevate-on-scroll>
+		<v-app-bar app color="white" class=" nav_bar pink--text" permanent elevate-5>
 			<v-app-bar-nav-icon @click.stop="drawer = !drawer" color="pink"></v-app-bar-nav-icon>
+			<v-toolbar-title>TurismoBaires</v-toolbar-title>
 			<v-spacer></v-spacer>
 
 			<div>

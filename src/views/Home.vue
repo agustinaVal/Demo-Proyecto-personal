@@ -1,17 +1,21 @@
 <template>
 	<div class="home">
-		<v-container >
-			<div class="ma-5 text-center">
-				<h1 class="title pink--text">Imperdibles</h1>
-				<br />
-				<h2 class="pink--text">
-					Si disponés de poco tiempo para visitar la ciudad, <br />
-					te proponemos algunos atractivos que no podés perderte. ¡Disfrutá de una experiencia completa!
-				</h2>
+		<v-container>
+			<div class="text-center">
+				<v-img contain
+					lazy-src="https://www.reportur.com/wp-content/uploads/2019/11/buenos-aires-impuesto.jpg"
+					max-height="100%"
+					max-width="100%"
+					src="https://www.reportur.com/wp-content/uploads/2019/11/buenos-aires-impuesto.jpg"
+				>
+					<h1 class=" white--text">Imperdibles</h1>
+					<br />
+					<h2 class=" white--text">
+						Si disponés de poco tiempo para visitar la ciudad, <br />
+						te proponemos algunos atractivos que no podés perderte. ¡Disfrutá de una experiencia completa!
+					</h2></v-img
+				>
 			</div>
-			<template>
-				<v-parallax src="https://www.reportur.com/wp-content/uploads/2019/11/buenos-aires-impuesto.jpg"></v-parallax>
-			</template>
 
 			<div class="ma-5 text-center">
 				<h3>Que Ver</h3>
@@ -36,7 +40,6 @@
 				<Galeria />
 			</div>
 
-			
 			<Footer />
 		</v-container>
 	</div>
