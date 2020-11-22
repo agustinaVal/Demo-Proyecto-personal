@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<v-app-bar app color="white" class="pink--text " permanent elevate-on-scroll>
+		<v-app-bar app color="white" class=" nav_bar pink--text px-16 " permanent elevate-on-scroll>
 			<v-app-bar-nav-icon @click.stop="drawer = !drawer" color="pink"></v-app-bar-nav-icon>
 			<v-spacer></v-spacer>
 
@@ -38,6 +38,10 @@
 		</v-navigation-drawer>
 	</div>
 </template>
+
+<style>
+
+</style>
 
 <script>
 import { mapState } from 'vuex';

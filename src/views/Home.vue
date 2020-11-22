@@ -1,7 +1,7 @@
 <template>
 	<div class="home">
-		<v-container>
-			<div class="pa-10 ma-5 text-center">
+		<v-container >
+			<div class="ma-5 text-center">
 				<h1 class="title pink--text">Imperdibles</h1>
 				<br />
 				<h2 class="pink--text">
@@ -10,10 +10,10 @@
 				</h2>
 			</div>
 			<template>
-				<v-parallax src="https://aws.traveler.es/prod/designs/v1/assets/940x630/73836.jpg"></v-parallax>
+				<v-parallax src="https://www.reportur.com/wp-content/uploads/2019/11/buenos-aires-impuesto.jpg"></v-parallax>
 			</template>
 
-			<div class="ma-2 text-center">
+			<div class="ma-5 text-center">
 				<h3>Que Ver</h3>
 				<v-row>
 					<v-col cols="6" md="3" v-for="(excursion, i) in excursiones" :key="i"
@@ -22,7 +22,7 @@
 				</v-row>
 			</div>
 
-			<div class="ma-2 text-center">
+			<div class="ma-5 text-center">
 				<h3>Donde dormir</h3>
 				<v-row>
 					<v-col cols="6" md="3" v-for="(alojamiento, i) in alojamientos" :key="i">
