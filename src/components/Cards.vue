@@ -8,9 +8,7 @@
 				<v-card-title>{{ excursion.data.title }}</v-card-title>
 
 				<v-card-text>
-					<div>
-						{{ excursion.data.subtitle }}
-					</div>
+					{{ excursion.data.subtitle }}
 				</v-card-text>
 
 				<v-divider class="mx-4"></v-divider>

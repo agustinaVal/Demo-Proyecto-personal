@@ -20,11 +20,14 @@ export default {
 	data: () => ({
 	}),
 	methods: {
-		...mapActions(['getData']),
+		...mapActions(['getData', 'getDataHostal']),
 	},
 	created() {
 		this.getData();
 	},
+	mounted(){
+		this.getDataHostal();
+	}
 };
 </script>
 

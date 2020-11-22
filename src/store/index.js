@@ -4,17 +4,20 @@ import firebase from 'firebase';
 import data from './data';
 import Carrito from './Carrito/index';
 
-
 Vue.use(Vuex);
 
 export default new Vuex.Store({
 	state: {
 		excursiones: [],
+		alojamientos: [],
 		usuario: {},
 	},
 	mutations: {
 		GET_DATA(state, excursiones) {
 			state.excursiones = excursiones;
+		},
+		GET_DATA_HOSTAL(state, alojamientos) {
+			state.alojamientos = alojamientos;
 		},
 		LOGIN(state, usuario) {
 			state.usuario = usuario;
@@ -36,6 +39,21 @@ export default new Vuex.Store({
 					commit('GET_DATA', excursiones);
 				});
 		},
+		getDataHostal({ commit }) {
+			firebase
+				.firestore()
+				.collection('alojamiento')
+				.onSnapshot((snapshot) => {
+					let alojamientos = [];
+					snapshot.forEach((p) => {
+						alojamientos.push({
+							id: p.id,
+							data: p.data(),
+						});
+					});
+					commit('GET_DATA_HOSTAL', alojamientos);
+				});
+		},
 		addUser(context, user) {
 			firebase
 				.auth()
@@ -55,7 +73,6 @@ export default new Vuex.Store({
 		async login({ commit }, usuario) {
 			try {
 				const user = await firebase.auth().signInWithEmailAndPassword(usuario.email, usuario.password);
-
 				const snapshot = await firebase
 					.firestore()
 					.collection('users')
@@ -95,7 +112,6 @@ export default new Vuex.Store({
 
 	modules: {
 		data,
-		Carrito
+		Carrito,
 	},
-    
 });

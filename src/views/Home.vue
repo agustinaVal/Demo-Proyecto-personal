@@ -12,13 +12,25 @@
 			<template>
 				<v-parallax src="https://aws.traveler.es/prod/designs/v1/assets/940x630/73836.jpg"></v-parallax>
 			</template>
-			<div class="ma-5 text-center">
+
+			<div class="ma-2 text-center">
 				<h1>Que Ver</h1>
+				<v-row>
+					<v-col cols="6" md="3" v-for="(excursion, i) in excursiones" :key="i"
+						><Cards :excursion="excursion"
+					/></v-col>
+				</v-row>
 			</div>
-			<v-row>
-				<v-col md="3" v-for="(excursion, i) in excursiones" :key="i"><Cards :excursion="excursion"/></v-col>
-			</v-row>
-			<Experiencias />
+
+			<div class="ma-2 text-center">
+				<h1>Donde Alojarse</h1>
+				<v-row>
+					<v-col cols="6" md="3" v-for="(alojamiento, i) in alojamientos" :key="i">
+						<Experiencias :alojamiento="alojamiento"
+					/></v-col>
+				</v-row>
+			</div>
+
 			<Valoracion />
 			<Footer />
 		</v-container>
@@ -33,7 +45,6 @@ import Footer from '@/components/Footer.vue';
 import { mapState } from 'vuex';
 export default {
 	name: 'Home',
-
 	components: {
 		Cards,
 		Experiencias,
@@ -42,7 +53,7 @@ export default {
 	},
 	data: () => ({}),
 	computed: {
-		...mapState(['excursiones']),
+		...mapState(['excursiones', 'alojamientos']),
 	},
 	props: {},
 };
