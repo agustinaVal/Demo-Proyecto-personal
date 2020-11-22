@@ -16,7 +16,7 @@
 				<v-card-title> ${{ excursion.data.price }}</v-card-title>
 
 				<v-card-actions>
-					<v-btn color="pink" text @click="agregarAlCarrito(excursion.id)">
+					<v-btn color="pink" text @click="agregar_Al_Carro">
 						Comprar
 					</v-btn>
 				</v-card-actions>
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import {  mapActions } from 'vuex';
 export default {
 	name: 'Cards',
 	props: ['excursion'],
@@ -35,10 +35,19 @@ export default {
 		//
 	}),
 	computed: {
-		...mapState(['excursiones']),
+		
 	},
 	methods: {
-		...mapActions('Carrito', ['agregarAlCarrito']),
+		...mapActions("Carrito" , ['agregarAlCarro']),
+		agregar_Al_Carro(){
+			//objeto personalizado que va a ser enviado al action
+			this.agregarAlCarro({
+				img: this.excursion.data.img,
+				title: this.excursion.data.title,
+				price: this.excursion.data.price,
+				id: this.excursion.data.id,
+			})
+		}
 		
 	},
 };
