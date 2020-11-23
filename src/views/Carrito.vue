@@ -1,5 +1,5 @@
 <template>
-	<v-card class="mx-auto">
+	<v-card>
 		<v-container>
 			<v-row dense>
 				<v-col v-for="(item, i) in carrito" :key="i" cols="6">
@@ -15,15 +15,13 @@
 									</v-card-subtitle
 								>
 							</div>
-							<v-avatar class="ma-3" size="125" tile>
-								<v-img :src="item.img"></v-img>
-							</v-avatar>
+						
 						</div>
 					</v-card>
 				</v-col>
 				<v-col cols="6">
 					<v-card class="d-flex justify-space-between">
-						<v-card-title class="headline"> Total: </v-card-title>
+						<v-card-title class="headline"> Total: {{ total }}</v-card-title>
 						<v-card-actions>
 							<v-btn text> Pagar </v-btn>
 						</v-card-actions>
@@ -35,7 +33,7 @@
 </template>
 
 <script>
-import { mapGetters, mapState, mapActions, mapMutations } from 'vuex';
+import { mapState, mapActions, mapMutations , mapGetters } from 'vuex';
 export default {
 	name: 'Carrito',
 	data: () => ({
