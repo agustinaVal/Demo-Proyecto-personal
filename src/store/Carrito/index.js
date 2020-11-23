@@ -50,9 +50,6 @@ export default {
 						.doc(p.id)
 						.update({ stock: p.stock -  p.cant });
 				})
-				// .then(() => {
-				// 	commit('PAGAR_TOTAL');
-				// });
 		},
 	},
 	getters: {
