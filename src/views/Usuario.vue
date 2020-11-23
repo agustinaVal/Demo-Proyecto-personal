@@ -1,11 +1,12 @@
 <template>
 	<div>
+	<h1>Crear Cuenta</h1>
 		<v-form ref="form" lazy-validation>
-			<v-text-field v-model="user.name" label="Nombre Completo" required></v-text-field>
-			<v-text-field v-model="user.email" label="E-mail" required></v-text-field>
-			<v-text-field v-model="user.direccion" label="Dirección" required></v-text-field>
+			<v-text-field v-model="nuevoUsuario.name" label="Nombre Completo" required></v-text-field>
+			<v-text-field v-model="nuevoUsuario.email" label="E-mail" required></v-text-field>
+			<v-text-field v-model="nuevoUsuario.direccion" label="Dirección" required></v-text-field>
 			<v-text-field
-				v-model="user.password"
+				v-model="nuevoUsuario.password"
 				:append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
 				:type="show1 ? 'text' : 'password'"
 				label="Contraseña"
@@ -23,7 +24,7 @@ import { mapActions } from 'vuex';
 export default {
 	data: () => ({
 		show1: false,
-		user: {
+		nuevoUsuario: {
 			name: '',
 			email: '',
 			direccion: '',
@@ -33,7 +34,7 @@ export default {
 	methods: {
 		...mapActions(['addUser']),
 		CrearUsuario() {
-			this.addUser(this.user);
+			this.addUser(this.nuevoUsuario);
 		},
 	},
 };

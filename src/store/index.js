@@ -22,9 +22,14 @@ export default new Vuex.Store({
 		LOGIN(state, usuario) {
 			state.usuario = usuario;
 		},
+		LOGOUT(state) {
+			state.usuario = {};
+		  },
 	},
 	actions: {
-		getData({ commit }) {
+		getData({
+			commit
+		}) {
 			firebase
 				.firestore()
 				.collection('excurciones')
@@ -39,7 +44,9 @@ export default new Vuex.Store({
 					commit('GET_DATA', excursiones);
 				});
 		},
-		getDataHostal({ commit }) {
+		getDataHostal({
+			commit
+		}) {
 			firebase
 				.firestore()
 				.collection('alojamiento')
@@ -70,7 +77,9 @@ export default new Vuex.Store({
 						});
 				});
 		},
-		async login({ commit }, usuario) {
+		async login({
+			commit
+		}, usuario) {
 			try {
 				const user = await firebase.auth().signInWithEmailAndPassword(usuario.email, usuario.password);
 				const snapshot = await firebase
@@ -89,16 +98,16 @@ export default new Vuex.Store({
 				return false;
 			}
 		},
-
 		async logout({ commit }) {
 			try {
-				await firebase.auth().signOut();
-				commit('LOGOUT');
-				return true;
+			  await firebase.auth().signOut();
+			  alert("Usuario Deslogueado")
+			  commit("LOGOUT");
+			  return true;
 			} catch (e) {
-				return false;
+			  return false;
 			}
-		},
+		  },
 	},
 	getters: {
 		excursionData: (state) => {
