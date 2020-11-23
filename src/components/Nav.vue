@@ -6,7 +6,7 @@
 			<v-spacer></v-spacer>
 
 			<div>
-				  {{ usuario.name }}
+				{{ usuario.name }}
 
 				<router-link :to="{ name: 'Carrito' }">
 					<v-icon color="pink" medium> mdi-cart</v-icon>
@@ -30,6 +30,9 @@
 						<v-list-item-title @click="logout"
 							><v-icon> mdi-arrow-up-bold-box-outline</v-icon> Cerrar sesión</v-list-item-title
 						>
+					</v-list-item>
+					<v-list-item :to="{ name: 'Registro' }">
+						<v-list-item-title>Ingreso Proveedores</v-list-item-title>
 					</v-list-item>
 				</v-list-item-group>
 			</v-list>

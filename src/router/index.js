@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
+import firebase from 'firebase';
+
 
 
 Vue.use(VueRouter);
@@ -14,61 +16,40 @@ const routes = [
 	{
 		path: '/Cards',
 		name: 'Cards',
-		// route level code-splitting
-		// this generates a separate chunk (about.[hash].js) for this route
-		// which is lazy-loaded when the route is visited.
 		component: () => import(/* webpackChunkName: "about" */ '../components/Cards.vue'),
 	},
 	{
 		path: '/experiencias',
 		name: 'Experiencias',
-		// route level code-splitting
-		// this generates a separate chunk (about.[hash].js) for this route
-		// which is lazy-loaded when the route is visited.
 		component: () => import(/* webpackChunkName: "about" */ '../components/Experiencias.vue'),
 	},
 	{
 		path: '/valoracion',
 		name: 'Valoracion',
-		// route level code-splitting
-		// this generates a separate chunk (about.[hash].js) for this route
-		// which is lazy-loaded when the route is visited.
 		component: () => import(/* webpackChunkName: "about" */ '../components/Valoracion.vue'),
 	},
 	{
 		path: '/carrito',
 		name: 'Carrito',
-		// route level code-splitting
-		// this generates a separate chunk (about.[hash].js) for this route
-		// which is lazy-loaded when the route is visited.
 		component: () => import(/* webpackChunkName: "about" */ '../views/Carrito.vue'),
 	},
 	{
 		path: '/login',
 		name: 'Login',
-		// route level code-splitting
-		// this generates a separate chunk (about.[hash].js) for this route
-		// which is lazy-loaded when the route is visited.
 		component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue'),
 	},
 	{
 		path: '/usuario',
 		name: 'Usuario',
-		// route level code-splitting
-		// this generates a separate chunk (about.[hash].js) for this route
-		// which is lazy-loaded when the route is visited.
 		component: () => import(/* webpackChunkName: "about" */ '../views/Usuario.vue'),
 	},
 	{
 		path: '/registro',
 		name: 'Registro',
-		// route level code-splitting
-		// this generates a separate chunk (about.[hash].js) for this route
-		// which is lazy-loaded when the route is visited.
 		component: () => import(/* webpackChunkName: "about" */ '../views/Registro.vue'),
-		// meta:{
-		// 	autentificado: true;
-		// }
+		meta:{
+			autentificando: true
+		}
 	},
 ];
 
@@ -77,5 +58,17 @@ const router = new VueRouter({
 	base: process.env.BASE_URL,
 	routes,
 });
+
+router.beforeEach((to, from, next) => {
+	let usuario = firebase.auth().currentUser;
+	let autorizacion = to.matched.some((ruta) => ruta.meta.autentificando);
+  
+	if (autorizacion && !usuario) {
+	  next("/");
+	} else if (!autorizacion && usuario) {
+	  next();
+	}
+	next();
+  });
 
 export default router;
