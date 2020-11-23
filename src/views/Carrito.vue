@@ -23,7 +23,7 @@
 					<v-card class="d-flex justify-space-between">
 						<v-card-title class="headline"> Total: {{ total }}</v-card-title>
 						<v-card-actions>
-							<v-btn text> Pagar </v-btn>
+							<v-btn @click="pagarTotal"> Pagar </v-btn>
 						</v-card-actions>
 					</v-card>
 				</v-col>
@@ -45,6 +45,7 @@ export default {
 	},
 	methods: {
 		...mapMutations('Carrito', ['MINUS' , 'PLUS']),
+		...mapActions('Carrito', ['pagarTotal']),
 	},
 };
 </script>

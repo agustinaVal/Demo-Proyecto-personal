@@ -46,6 +46,7 @@ export default {
 				title: this.excursion.data.title,
 				price: this.excursion.data.price,
 				id: this.excursion.data.id,
+				stock: this.excursion.data.stock,
 			})
 		}
 		
