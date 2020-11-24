@@ -20,8 +20,8 @@
 				<v-col cols="6">
 					<v-card class="d-flex justify-space-between">
 						<v-card-title class="headline"> Total: {{ total }}</v-card-title>
-						<v-card-actions>
-							<v-btn @click="pagarTotal"> Pagar </v-btn>
+						<v-card-actions >
+							<v-btn :to="{ name: 'Gracias' }" @click="pagarTotal"> Pagar </v-btn>
 						</v-card-actions>
 					</v-card>
 				</v-col>

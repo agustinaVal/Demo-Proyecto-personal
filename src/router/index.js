@@ -51,6 +51,11 @@ const routes = [
 			autentificando: true
 		}
 	},
+	{
+		path: '/gracias',
+		name: 'Gracias',
+		component: () => import(/* webpackChunkName: "about" */ '../views/Gracias.vue'),
+	},
 ];
 
 const router = new VueRouter({
