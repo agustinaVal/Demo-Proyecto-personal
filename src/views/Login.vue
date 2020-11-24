@@ -49,7 +49,7 @@ export default {
 				this.$router.push('/');
 			}
     },
-    logInGoogle() {
+  logInGoogle() {
 		const provider = new firebase.auth.GoogleAuthProvider();
 		firebase
 			.auth()
