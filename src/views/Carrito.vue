@@ -12,10 +12,8 @@
 									<v-btn fab small @click="MINUS(item.id)"> <v-icon>mdi-minus</v-icon></v-btn>
 									{{ item.cant }}
 									<v-btn fab small @click="PLUS(item.id)"><v-icon>mdi-plus</v-icon></v-btn>
-									</v-card-subtitle
-								>
+									</v-card-subtitle>
 							</div>
-						
 						</div>
 					</v-card>
 				</v-col>

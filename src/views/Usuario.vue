@@ -1,6 +1,6 @@
 <template>
 	<div>
-	<h1>Crear Cuenta</h1>
+		<h1>Crear Cuenta</h1>
 		<v-form ref="form" lazy-validation>
 			<v-text-field v-model="nuevoUsuario.name" label="Nombre Completo" required></v-text-field>
 			<v-text-field v-model="nuevoUsuario.email" label="E-mail" required></v-text-field>
@@ -35,6 +35,7 @@ export default {
 		...mapActions(['addUser']),
 		CrearUsuario() {
 			this.addUser(this.nuevoUsuario);
+			this.$router.push('login');
 		},
 	},
 };
