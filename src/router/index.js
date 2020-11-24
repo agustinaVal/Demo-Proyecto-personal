@@ -57,8 +57,9 @@ const routes = [
 		component: () => import(/* webpackChunkName: "about" */ '../views/Gracias.vue'),
 	},
 	{
-		path: '/excursion',
+		path: '/excursion/:id',
 		name: 'Excursion',
+		props: true,
 		component: () => import(/* webpackChunkName: "about" */ '../views/Excursion.vue'),
 	},
 ];

@@ -6,7 +6,12 @@
 
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
-    name: "Excursion"
+    name: "Excursion",
+    props: ["id"],
+    computed:{
+        ...mapGetters(['getExcursion'])
+    }
 }
 </script>

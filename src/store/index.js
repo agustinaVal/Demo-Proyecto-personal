@@ -113,6 +113,9 @@ export default new Vuex.Store({
 				return data;
 			});
 		},
+		getExcursion: (state) => (id) => {
+			return state.excursiones.find((excursion) => excursion.id === id);
+		  },
 	},
 
 	modules: {
