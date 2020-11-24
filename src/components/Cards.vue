@@ -54,7 +54,8 @@ export default {
 	methods: {
 		...mapActions('Carrito', ['agregarAlCarro']),
 		agregar_Al_Carro() {
-			//objeto personalizado que va a ser enviado al action
+					// agregar al carro es un metodo que ejecuta un accion y le pasa el objeto. 
+					//esto dispara una accion que se encuentra en store carrito
 			this.agregarAlCarro({
 				img: this.excursion.data.img,
 				title: this.excursion.data.title,
