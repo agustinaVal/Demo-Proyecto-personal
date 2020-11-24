@@ -1,6 +1,7 @@
 <template>
     <div>
-        <h1>hola</h1>
+        <h1>{{excursion.title}}</h1>
+        <v-btn :to=" {name: 'Home'}">Volver al Inicio</v-btn>
     </div>
 </template>
 
@@ -11,7 +12,11 @@ export default {
     name: "Excursion",
     props: ["id"],
     computed:{
-        ...mapGetters(['getExcursion'])
+        ...mapGetters(['getExcursion']),
+        excursion(){
+            const id = this.id
+            return this.getExcursion(id).data;
+        }
     }
 }
 </script>
