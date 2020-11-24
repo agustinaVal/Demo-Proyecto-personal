@@ -75,23 +75,26 @@ export default new Vuex.Store({
 		},
 		async login({ commit }, usuario) {
 			try {
-				const user = await firebase.auth().signInWithEmailAndPassword(usuario.email, usuario.password);
-				const snapshot = await firebase
-					.firestore()
-					.collection('users')
-					.where('email', '==', usuario.email)
-					.get();
-
-				snapshot.forEach((doc) => {
-					commit('LOGIN', doc.data());
-				});
-
-				return true;
+			  const user = await firebase
+				.auth()
+				.signInWithEmailAndPassword(usuario.email, usuario.password);
+	  
+			  const snapshot = await firebase
+				.firestore()
+				.collection("users")
+				.where("email", "==", usuario.email)
+				.get();
+	  
+			  snapshot.forEach((doc) => {
+				commit("LOGIN", doc.data());
+			  });
+	  
+			  return true;
 			} catch (e) {
-				console.log(e);
-				return false;
+			  console.log(e);
+			  return false;
 			}
-		},
+		  },
 		logout({ commit }) {
 			alert("Usuario deslogueado")
 			firebase
