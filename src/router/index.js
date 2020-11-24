@@ -56,6 +56,11 @@ const routes = [
 		name: 'Gracias',
 		component: () => import(/* webpackChunkName: "about" */ '../views/Gracias.vue'),
 	},
+	{
+		path: '/excursion',
+		name: 'Excursion',
+		component: () => import(/* webpackChunkName: "about" */ '../views/Excursion.vue'),
+	},
 ];
 
 const router = new VueRouter({

@@ -19,6 +19,11 @@
 						Comprar
 					</v-btn>
 				</v-card-actions>
+				<v-card-actions>
+					<v-btn color="pink" text :to="'/excursion/' + excursion.id">
+						ver detalle
+					</v-btn>
+				</v-card-actions>
 			</v-card>
 			<v-dialog v-model="loginModal" max-width="200">
 				<v-card class="pa-5">
