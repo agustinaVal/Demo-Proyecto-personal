@@ -10,6 +10,7 @@
 			src="https://st2.depositphotos.com/2343527/7218/v/450/depositphotos_72181019-stock-illustration-young-man-tourist-with-a.jpg"
 		>
 		</v-img>
+        <v-btn :to="{ name: 'Home' }">Volver al inicio</v-btn>
 	</v-container>
 </template>
 
