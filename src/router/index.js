@@ -73,8 +73,6 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
 	let usuario = firebase.auth().currentUser || {email: ""};
 	let autorizacion = to.matched.some((ruta) => ruta.meta.autentificando);
-	console.log(usuario)
-	console.log(to)
 	if ( to.path == "/registro" && usuario.email !== "admin@admin.cl" ) {
 		next("/");
 	} else  {

@@ -13,24 +13,25 @@ export default {
 		MINUS(state, id) {
 			// primero debo sabe la cantidad, si es  mayor a 1 agregará mas cantidad sino elimina del mismo id
 			const cant = state.carrito.find((p) => p.id == id).cant;
-			cant > 1
-				? (state.carrito = state.carrito.map((p) => {
-						if (p.id == id) {
-							p.cant = p.cant - 1;
-							return p;
-						}
+			console.log(cant)
+			cant > 1 ?
+				(state.carrito = state.carrito.map((p) => {
+					if (p.id == id) {
+						p.cant = p.cant - 1;
 						return p;
-				  }))
-				: (state.carrito = state.carrito.filter((p) => p.id !== id));
+					}
+					return p;
+				})) :
+				(state.carrito = state.carrito.filter((p) => p.id !== id));
 		},
-		PLUS(state, id) {
+		PLUS(state, excursion) {
 			// pasa por un map ya que no altera el arreglo original
 			// diferencia entre map y foreach es que el foreach no devuelve un arreglo solamente recorre el arreglo
 			// encambio el map devuelve un arreglo con la misma cantidad de elementos. el map itera un elemento. si no devuelvo nada devuelve undifined
 			// el map sirve para modificar algo de un elemento que existe en el arreglo
 			state.carrito = state.carrito.map((p) => {
-				if (p.id == id) {
-					p.cant++;
+				if (p.id == excursion.id) {
+					p.cant = p.cant + 1;
 					return p;
 				}
 				return p;
@@ -41,22 +42,30 @@ export default {
 		},
 	},
 	actions: {
-		agregarAlCarro({ commit, state }, excursion) {
+		agregarAlCarro({
+			commit,
+			state
+		}, excursion) {
 			excursion.cant = 1;
 
 			const exc = state.carrito.find((p) => p.id == excursion.id);
 			exc
-				? commit('PLUS', excursion.id)
-				: // esat accion me agregar un nuevo elemento en el arreglo por la logica del push
-				  commit('AGREGAR_AL_CARRO', excursion);
+				?
+				commit('PLUS', excursion) : // esat accion me agregar un nuevo elemento en el arreglo por la logica del push
+				commit('AGREGAR_AL_CARRO', excursion);
 		},
-		pagarTotal({ commit, state }) {
+		pagarTotal({
+			commit,
+			state
+		}) {
 			state.carrito.forEach((p) => {
 				firebase
 					.firestore()
 					.collection('excurciones')
 					.doc(p.id)
-					.update({ stock: p.stock - p.cant });
+					.update({
+						stock: p.stock - p.cant
+					});
 			});
 		},
 	},
