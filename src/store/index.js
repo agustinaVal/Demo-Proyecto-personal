@@ -93,6 +93,7 @@ export default new Vuex.Store({
 			}
 		},
 		logout({ commit }) {
+			alert("Usuario deslogueado")
 			firebase
 				.auth()
 				.signOut()

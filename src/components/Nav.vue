@@ -17,18 +17,18 @@
 			<v-list nav dense>
 				<v-list-item-group active-class="pink--text text--accent-4">
 					<v-list-item :to="{ name: 'Home' }">
-						<v-list-item-title> <v-icon> mdi-home</v-icon> Inicio </v-list-item-title>
+						<v-list-item-title> Inicio </v-list-item-title>
 					</v-list-item>
 					<v-list-item :to="{ name: 'Usuario' }">
-						<v-list-item-title> <v-icon> mdi-pencil</v-icon>Crear cuenta</v-list-item-title>
+						<v-list-item-title> Crear cuenta</v-list-item-title>
 					</v-list-item>
 					<v-list-item :to="{ name: 'Login' }">
-						<v-list-item-title> <v-icon> mdi-account</v-icon>Iniciar sesión</v-list-item-title>
+						<v-list-item-title>Iniciar sesión</v-list-item-title>
 					</v-list-item>
 
 					<v-list-item>
 						<v-list-item-title @click="logout"
-							><v-icon> mdi-arrow-up-bold-box-outline</v-icon> Cerrar sesión</v-list-item-title
+							>Cerrar sesión</v-list-item-title
 						>
 					</v-list-item>
 					<v-list-item :to="{ name: 'Registro' }">

@@ -24,9 +24,9 @@ const routes = [
 		component: () => import(/* webpackChunkName: "about" */ '../components/Experiencias.vue'),
 	},
 	{
-		path: '/valoracion',
-		name: 'Valoracion',
-		component: () => import(/* webpackChunkName: "about" */ '../components/Valoracion.vue'),
+		path: '/galeria',
+		name: 'Galeria',
+		component: () => import(/* webpackChunkName: "about" */ '../components/Galeria.vue'),
 	},
 	{
 		path: '/carrito',
