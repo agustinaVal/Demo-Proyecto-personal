@@ -47,7 +47,6 @@ export default {
 			state
 		}, excursion) {
 			excursion.cant = 1;
-
 			const exc = state.carrito.find((p) => p.id == excursion.id);
 			exc
 				?
@@ -70,7 +69,7 @@ export default {
 		},
 	},
 	getters: {
-		// logica para evitar que la app tome un valor inicial 0. Carrito es un arreglo vacio al inicio
+		// logica para evitar que la app tome un valor inicial 0 Carrito es un arreglo vacio al inicio
 		total: (state) => {
 			const e = state.carrito.length > 0 ? state.carrito.map((p) => p.price * p.cant) : [0];
 			return e.reduce((a, c) => a + c);

@@ -1,7 +1,7 @@
 <template>
 	<div id="Registro">
 		<template>
-			<h1>Registro</h1>
+			<h1 class="titulo__principal__registro">Registro</h1>
 			<br/>
 			<Form :excursion="excursion" />
 			<br />
