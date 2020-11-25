@@ -9,9 +9,8 @@ Enamorate de la hermosa Cuidad Porteña!
 https://tienda-online-f27ab.web.app/
 
 ```
-## Pasos a seguir: 
+### Pasos a seguir: 
 
-----------------------
 ## Ingresar al terminar y correr: 
 ```
 yarn install
@@ -22,7 +21,6 @@ yarn install
 ```
 yarn serve
 ```
----------------------------------
 
 ### Compilación para producción:
 ```
@@ -42,6 +40,7 @@ yarn test:e2e
 
 ```
 -----------------------------
+---------------------------------
 
 ### Proyecto construido con:
 
@@ -55,7 +54,7 @@ yarn test:e2e
 ### Proyecto producido por:
 
 ```
-Maria Agustina Valenti - Desarrollo Front End
+Maria Agustina Valenti - Desarrollo Front End con VueJs
 
 ```
 
