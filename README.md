@@ -1,15 +1,16 @@
-# turismobaires
+# Turismobaires
 
 TurismoBaires es una App que ofrece alternativas para conocer cada rincón de Buenos Aires. 
 Enamorate de la hermosa Cuidad Porteña!
 
-# Ingresa aquí para ingresar a la App
+# Ingresa aquí para ver a la App
 
 ```
 https://tienda-online-f27ab.web.app/
 
 ```
 ## Pasos a seguir: 
+
 ----------------------
 ## Ingresar al terminar y correr: 
 ```
@@ -43,6 +44,7 @@ yarn test:e2e
 -----------------------------
 
 ### Proyecto construido con:
+
  1) Vue Js
  2) Vue-CLI
  3) Vueity v2.3.18
