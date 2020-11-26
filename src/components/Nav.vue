@@ -15,7 +15,7 @@
 
 		<v-navigation-drawer v-model="drawer" app>
 			<v-list nav>
-				<v-list-item-group active-class="amber--text text--lighten-1">
+				<v-list-item-group active-class="green--text text--lighten-1">
 
 					<v-list-item :to="{ name: 'Home' }">
 						<v-list-item-title> Inicio </v-list-item-title>
@@ -47,11 +47,12 @@
 <style>
 .Nav_titulo_principal {
 	font-weight: 800;
-	color: #ffca28;
+	color: #00E5FF
+;
 }
 
 .Nav_nombre_usuario {
-	color: #ffca28;
+	color: #00E5FF;
 }
 </style>
 
@@ -59,7 +60,7 @@
 import { mapActions, mapState } from 'vuex';
 export default {
 	data: () => ({
-		drawer: false,
+		drawer: true,
 	}),
 
 	computed: {
