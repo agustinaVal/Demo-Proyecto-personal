@@ -72,4 +72,5 @@ export default {
 	font-size: 60px !important;
 	font-weight: black;
 }
+
 </style>

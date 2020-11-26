@@ -51,7 +51,7 @@ export default {
 		},
 		pagarTotal({ commit, state }, router) {
 			try {
-				state.carrito.forEach(async (p) => {
+				state.carrito.forEach( async (p) => {
 					await firebase
 						.firestore()
 						.collection('excurciones')
