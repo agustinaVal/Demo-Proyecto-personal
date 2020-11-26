@@ -49,17 +49,6 @@
 	</div>
 </template>
 
-<style>
-	.Nav_titulo_principal {
-		font-weight: 800;
-		color: #00e5ff;
-	}
-
-	.Nav_nombre_usuario {
-		color: #00e5ff;
-	}
-</style>
-
 <script>
 	import { mapActions, mapState } from 'vuex'
 	export default {
@@ -79,3 +68,14 @@
 		},
 	}
 </script>
+
+<style>
+	.Nav_titulo_principal {
+		font-weight: 800;
+		color: #00e5ff;
+	}
+
+	.Nav_nombre_usuario {
+		color: #00e5ff;
+	}
+</style>
