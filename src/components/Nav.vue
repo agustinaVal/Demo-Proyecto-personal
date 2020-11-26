@@ -36,23 +36,21 @@
 					<v-list-item :to="{ name: 'Registro' }">
 						<v-list-item-title>Ingreso Proveedores</v-list-item-title>
 					</v-list-item>
-
+					
 				</v-list-item-group>
 			</v-list>
 		</v-navigation-drawer>
-		
 	</div>
 </template>
 
 <style>
 .Nav_titulo_principal {
 	font-weight: 800;
-	color: #00E5FF
-;
+	color: #00e5ff;
 }
 
 .Nav_nombre_usuario {
-	color: #00E5FF;
+	color: #00e5ff;
 }
 </style>
 
