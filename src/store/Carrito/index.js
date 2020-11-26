@@ -1,5 +1,7 @@
-import firebase from 'firebase';
-import store from '../index';
+/** @format */
+
+import firebase from 'firebase'
+import store from '../index'
 
 export default {
 	namespaced: true,
@@ -8,21 +10,21 @@ export default {
 	},
 	mutations: {
 		AGREGAR_AL_CARRO(state, excursion) {
-			state.carrito.push(excursion);
+			state.carrito.push(excursion)
 		},
 		MINUS(state, id) {
 			// primero debo sabe la cantidad, si es  mayor a 1 agregará mas cantidad sino elimina del mismo id
-			const cant = state.carrito.find((p) => p.id == id).cant;
-			console.log(cant);
+			const cant = state.carrito.find((p) => p.id == id).cant
+			console.log(cant)
 			cant > 1
 				? (state.carrito = state.carrito.map((p) => {
 						if (p.id == id) {
-							p.cant = p.cant - 1;
-							return p;
+							p.cant = p.cant - 1
+							return p
 						}
-						return p;
+						return p
 				  }))
-				: (state.carrito = state.carrito.filter((p) => p.id !== id));
+				: (state.carrito = state.carrito.filter((p) => p.id !== id))
 		},
 		PLUS(state, excursion) {
 			// pasa por un map ya que no altera el arreglo original
@@ -31,48 +33,51 @@ export default {
 			// el map sirve para modificar algo de un elemento que existe en el arreglo
 			state.carrito = state.carrito.map((p) => {
 				if (p.id == excursion.id) {
-					p.cant = p.cant + 1;
-					return p;
+					p.cant = p.cant + 1
+					return p
 				}
-				return p;
-			});
+				return p
+			})
 		},
 		PAGAR_TOTAL(state) {
-			state.carrito = [];
+			state.carrito = []
 		},
 	},
 	actions: {
 		agregarAlCarro({ commit, state }, excursion) {
-			excursion.cant = 1;
-			const exc = state.carrito.find((p) => p.id == excursion.id);
+			excursion.cant = 1
+			const exc = state.carrito.find((p) => p.id == excursion.id)
 			exc
 				? commit('PLUS', excursion) // esat accion me agregar un nuevo elemento en el arreglo por la logica del push
-				: commit('AGREGAR_AL_CARRO', excursion);
+				: commit('AGREGAR_AL_CARRO', excursion)
 		},
 		pagarTotal({ commit, state }, router) {
 			try {
-				state.carrito.forEach( async (p) => {
+				state.carrito.forEach(async (p) => {
 					await firebase
 						.firestore()
 						.collection('excurciones')
 						.doc(p.id)
 						.update({
 							stock: p.stock - p.cant,
-						});
-				});
-				router.push({ name: 'Gracias' });
+						})
+				})
+				router.push({ name: 'Gracias' })
 			} catch (e) {
-				alert('algo salió mal');
+				alert('algo salió mal')
 			}
 		},
 	},
 	getters: {
 		// logica para evitar que la app tome un valor inicial 0 Carrito es un arreglo vacio al inicio
 		total: (state) => {
-			const e = state.carrito.length > 0 ? state.carrito.map((p) => p.price * p.cant) : [0];
-			return e.reduce((a, c) => a + c);
+			const e =
+				state.carrito.length > 0
+					? state.carrito.map((p) => p.price * p.cant)
+					: [0]
+			return e.reduce((a, c) => a + c)
 			//reduce es un acumulador, me permite que por cada iteracion me suma 0 mas el primer total
 			// al ser un geter devuelve la suma de todos los elementos numericos del arreglo que se esta creando en la const
 		},
 	},
-};
+}

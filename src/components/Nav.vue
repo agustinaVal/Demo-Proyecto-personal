@@ -1,8 +1,16 @@
+<!-- @format -->
+
 <template>
 	<div>
 		<v-app-bar app color="white" class="NavBar__principal" permanent elevate-5>
-			<v-app-bar-nav-icon @click.stop="drawer = !drawer" color="green accent-4" large></v-app-bar-nav-icon>
-			<v-toolbar-title class="Nav_titulo_principal">TurismoBaires</v-toolbar-title>
+			<v-app-bar-nav-icon
+				@click.stop="drawer = !drawer"
+				color="green accent-4"
+				large
+			></v-app-bar-nav-icon>
+			<v-toolbar-title class="Nav_titulo_principal"
+				>TurismoBaires</v-toolbar-title
+			>
 			<v-spacer></v-spacer>
 
 			<div class="Nav_nombre_usuario">
@@ -16,7 +24,6 @@
 		<v-navigation-drawer v-model="drawer" app>
 			<v-list nav>
 				<v-list-item-group active-class="green--text text--lighten-1">
-
 					<v-list-item :to="{ name: 'Home' }">
 						<v-list-item-title> Inicio </v-list-item-title>
 					</v-list-item>
@@ -36,7 +43,6 @@
 					<v-list-item :to="{ name: 'Registro' }">
 						<v-list-item-title>Ingreso Proveedores</v-list-item-title>
 					</v-list-item>
-					
 				</v-list-item-group>
 			</v-list>
 		</v-navigation-drawer>
@@ -44,31 +50,32 @@
 </template>
 
 <style>
-.Nav_titulo_principal {
-	font-weight: 800;
-	color: #00e5ff;
-}
+	.Nav_titulo_principal {
+		font-weight: 800;
+		color: #00e5ff;
+	}
 
-.Nav_nombre_usuario {
-	color: #00e5ff;
-}
+	.Nav_nombre_usuario {
+		color: #00e5ff;
+	}
 </style>
 
 <script>
-import { mapActions, mapState } from 'vuex';
-export default {
-	data: () => ({
-		drawer: true,
-	}),
+	import { mapActions, mapState } from 'vuex'
+	export default {
+		data: () => ({
+			drawer: false,
+		}),
 
-	computed: {
-		...mapState(['usuario']),
-	},
-	methods: {
-		Logout() {
-			this.logout();
+		computed: {
+			...mapState(['usuario']),
 		},
-		...mapActions(['logout']),
-	},
-};
+		methods: {
+			Logout() {
+				this.logout()
+			},
+			...mapActions(['logout']),
+			itemCart() {},
+		},
+	}
 </script>
