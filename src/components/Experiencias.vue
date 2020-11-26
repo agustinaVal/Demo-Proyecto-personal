@@ -18,12 +18,12 @@
           </v-card-subtitle>
 
           <v-card-actions>
-            <v-btn color="green accent-4" text> Ver más </v-btn>
+            <v-btn color="grey lighten-1" text> <strong>Ver más </strong></v-btn>
 
             <v-spacer></v-spacer>
 
             <v-btn icon @click="show = !show">
-              <v-icon color="green accent-4">{{
+              <v-icon color="pink accent-2">{{
                 show ? "mdi-chevron-up" : "mdi-chevron-down"
               }}</v-icon>
             </v-btn>

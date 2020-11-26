@@ -1,69 +1,77 @@
 <template>
-	<v-container>
-		<template>
-			<v-card class="mx-auto my-12">
-				<v-img height="250" widht="250" :src="excursion.data.img"></v-img>
+<v-hover
+        v-slot="{ hover }"
+        open-delay="200"
+      >
+  <v-card :elevation="hover ? 16 : 2"
+          :class="{ 'on-hover': hover }"
+          class="mx-auto"
+          height="400"
+          max-width="400">
+    <v-img
+      class="white--text align-end"
+      height="200px"
+      :src="excursion.data.img"
+    >
+    </v-img>
+    <v-card-title
+      ><strong>{{ excursion.data.title }}</strong></v-card-title
+    >
 
-				<v-card-title>{{ excursion.data.title }}</v-card-title>
+    <v-card-subtitle class="pb-0">
+      <span>{{ excursion.data.subtitle }}</span>
+    </v-card-subtitle>
 
-				<v-card-text>
-					{{ excursion.data.subtitle }}
-				</v-card-text>
+    <v-card-text class="text--primary">
+      <div><h4>Precio:</h4> $ {{ excursion.data.price }}</div>
+    </v-card-text>
 
-				<v-divider class="mx-4"></v-divider>
+    <v-card-actions>
+      <div @click="loginModal = true" class="mx-10">
+        <v-btn color="pink accent-2"  text @click="agregar_Al_Carro"> <strong>Comprar</strong> </v-btn>
+      </div>
 
-				<v-card-title> ${{ excursion.data.price }}</v-card-title>
-
-				<v-card-actions @click="loginModal = true">
-					<v-btn color="pink" text @click="agregar_Al_Carro">
-						Comprar
-					</v-btn>
-				</v-card-actions>
-				<v-card-actions>
-					<v-btn color="pink" text :to="'/excursion/' + excursion.id">
-						ver detalle
-					</v-btn>
-				</v-card-actions>
-			</v-card>
-			<v-dialog v-model="loginModal" max-width="200">
-				<v-card class="pa-5">
-					<v-card-title class="headline">
-						¡Agregado con éxito!
-					</v-card-title>
-					<v-card-actions>
-						<v-btn color="red darken-1" @click="loginModal = false">
-							cerrar
-						</v-btn>
-					</v-card-actions>
-				</v-card>
-			</v-dialog>
-		</template>
-	</v-container>
+      <v-btn color="grey lighten-1" text :to="'/excursion/' + excursion.id">
+        <strong>Detalles</strong>
+      </v-btn>
+    </v-card-actions>
+    <v-dialog v-model="loginModal" max-width="200">
+      <v-card class="pa-5">
+        <v-card-title class="headline"> ¡Agregado con éxito! </v-card-title>
+        <v-card-actions>
+          <v-btn color="green accent-4"   @click="loginModal = false">
+            cerrar
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </v-card>
+  </v-hover>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
 export default {
-	name: 'Cards',
-	props: ['excursion'],
-	components: {},
-	data: () => ({
-		loginModal: false,
-	}),
-	computed: {},
-	methods: {
-		...mapActions('Carrito', ['agregarAlCarro']),
-		agregar_Al_Carro() {
-					// agregar al carro es un metodo que ejecuta un accion y le pasa el objeto. 
-					//esto dispara una accion que se encuentra en store carrito
-			this.agregarAlCarro({
-				img: this.excursion.data.img,
-				title: this.excursion.data.title,
-				price: this.excursion.data.price,
-				id: this.excursion.data.id,
-				stock: this.excursion.data.stock,
-			});
-		},
-	},
+  name: "Cards",
+  props: ["excursion"],
+  components: {},
+  data: () => ({
+    loginModal: false,
+  }),
+  computed: {},
+  methods: {
+    ...mapActions("Carrito", ["agregarAlCarro"]),
+    agregar_Al_Carro() {
+      // agregar al carro es un metodo que ejecuta un accion y le pasa el objeto.
+      //esto dispara una accion que se encuentra en store carrito
+      this.agregarAlCarro({
+        img: this.excursion.data.img,
+        title: this.excursion.data.title,
+        price: this.excursion.data.price,
+        id: this.excursion.data.id,
+        stock: this.excursion.data.stock,
+      });
+    },
+  },
 };
 </script>
