@@ -1,32 +1,62 @@
 <template>
-	<v-container>
-		<template>
-			<v-card class="mx-auto" max-width="400">
-				<v-img class="white--text align-end" height="200px" :src="alojamiento.data.img">
-					<v-card-title>{{ alojamiento.data.name }}</v-card-title>
-				</v-img>
+  <v-container>
+    <div class="alojamientos__hoteles">
+      <template>
+        <v-card class="mx-auto" max-width="344" alevate-5>
+          <v-img :src="alojamiento.data.img" height="200px"></v-img>
 
-				<v-card-subtitle class="pb-0">
-					{{ alojamiento.data.description }}
-				</v-card-subtitle>
-				<v-card-subtitle class="pb-0"> Dirección: {{ alojamiento.data.direction }} </v-card-subtitle>
-				<v-card-subtitle class="pb-0"> Contacto: {{ alojamiento.data.contact }} </v-card-subtitle>
-			</v-card>
-		</template>
-	</v-container>
+          <v-card-title>
+            <strong>{{ alojamiento.data.name }}</strong>
+          </v-card-title>
+
+          <v-card-subtitle>
+            <span>{{ alojamiento.data.description }}</span>
+          </v-card-subtitle>
+
+          <v-card-actions>
+            <v-btn color="orange lighten-2" text> Ver más </v-btn>
+
+            <v-spacer></v-spacer>
+
+            <v-btn icon @click="show = !show">
+              <v-icon>{{
+                show ? "mdi-chevron-up" : "mdi-chevron-down"
+              }}</v-icon>
+            </v-btn>
+          </v-card-actions>
+
+          <v-expand-transition>
+            <div v-show="show">
+              <v-divider></v-divider>
+
+              <v-card-text>
+                <strong>Dirección:</strong> <br> {{ alojamiento.data.direction }}
+              </v-card-text>
+              <v-card-text>
+                <strong>Contacto:</strong> <br>  {{ alojamiento.data.contact }}
+              </v-card-text>
+			   <v-card-text>
+                <strong>Visita la Web:</strong> <br>  {{ alojamiento.data.url }}
+              </v-card-text>
+            </div>
+          </v-expand-transition>
+        </v-card>
+      </template>
+    </div></v-container
+  >
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState } from "vuex";
 export default {
-	name: 'alojamiento',
-	props: ['alojamiento'],
-	components: {},
-	data: () => ({
-		//
-	}),
-	computed: {
-		...mapState(['alojamientos']),
-	},
+  name: "alojamiento",
+  props: ["alojamiento"],
+  components: {},
+  data: () => ({
+    show: false,
+  }),
+  computed: {
+    ...mapState(["alojamientos"]),
+  },
 };
 </script>

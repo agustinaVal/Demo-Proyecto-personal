@@ -39,7 +39,7 @@
         </v-row>
 
         <v-row>
-          <v-col cols="6" md="3" v-for="(excursion, i) in excursiones" :key="i"
+          <v-col sm="12" md="4" v-for="(excursion, i) in excursiones" :key="i"
             ><Cards :excursion="excursion"
           /></v-col>
         </v-row>
@@ -49,7 +49,7 @@
     <section id="Main__donde_dormir">
       <div>
         <v-row align="center" justify="center">
-          <v-col class="text-center" cols="12">
+          <v-col class="text-center" col="12" >
             <h2 class="Titulo_main_QUEVER">
               Los mejores Hoteles para descansar
             </h2>
@@ -60,8 +60,7 @@
         </v-row>
         <v-row>
           <v-col
-            cols="6"
-            md="3"
+            sm="12" md="4"
             v-for="(alojamiento, i) in alojamientos"
             :key="i"
             ><Experiencias :alojamiento="alojamiento"
@@ -89,7 +88,7 @@
     <section id="Footer">
       <div>
         <v-row align="center" justify="center">
-          <v-col class="text-center" cols="12">
+          <v-col class="text-center" sm="12">
             <Footer />
           </v-col>
         </v-row>

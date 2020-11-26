@@ -2,7 +2,7 @@
 	<v-container>
 		<template>
 			<v-card class="mx-auto my-12">
-				<v-img height="250" :src="excursion.data.img"></v-img>
+				<v-img height="250" widht="250" :src="excursion.data.img"></v-img>
 
 				<v-card-title>{{ excursion.data.title }}</v-card-title>
 
