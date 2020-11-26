@@ -11,8 +11,8 @@
 								<v-card-subtitle>
 									<v-btn fab small @click="MINUS(item.id)"> <v-icon>mdi-minus</v-icon></v-btn>
 									{{ item.cant }}
-									<v-btn fab small @click="PLUS({ id: item.id})"><v-icon>mdi-plus</v-icon></v-btn>
-									</v-card-subtitle>
+									<v-btn fab small @click="PLUS({ id: item.id })"><v-icon>mdi-plus</v-icon></v-btn>
+								</v-card-subtitle>
 							</div>
 						</div>
 					</v-card>
@@ -20,8 +20,8 @@
 				<v-col cols="6">
 					<v-card class="d-flex justify-space-between">
 						<v-card-title class="headline"> Total: {{ total }}</v-card-title>
-						<v-card-actions >
-							<v-btn :to="{ name: 'Gracias' }" @click="pagarTotal"> Pagar </v-btn>
+						<v-card-actions>
+							<v-btn @click="pagar_Total"> Pagar </v-btn>
 						</v-card-actions>
 					</v-card>
 				</v-col>
@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { mapState, mapActions, mapMutations , mapGetters } from 'vuex';
+import { mapState, mapActions, mapMutations, mapGetters } from 'vuex';
 export default {
 	name: 'Carrito',
 	data: () => ({
@@ -42,7 +42,10 @@ export default {
 		...mapGetters('Carrito', ['total']),
 	},
 	methods: {
-		...mapMutations('Carrito', ['MINUS' , 'PLUS']),
+		...mapMutations('Carrito', ['MINUS', 'PLUS']),
+		pagar_Total() {
+			this.pagarTotal(this.$router);
+		},
 		...mapActions('Carrito', ['pagarTotal']),
 	},
 };

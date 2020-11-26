@@ -13,16 +13,16 @@ export default {
 		MINUS(state, id) {
 			// primero debo sabe la cantidad, si es  mayor a 1 agregará mas cantidad sino elimina del mismo id
 			const cant = state.carrito.find((p) => p.id == id).cant;
-			console.log(cant)
-			cant > 1 ?
-				(state.carrito = state.carrito.map((p) => {
-					if (p.id == id) {
-						p.cant = p.cant - 1;
+			console.log(cant);
+			cant > 1
+				? (state.carrito = state.carrito.map((p) => {
+						if (p.id == id) {
+							p.cant = p.cant - 1;
+							return p;
+						}
 						return p;
-					}
-					return p;
-				})) :
-				(state.carrito = state.carrito.filter((p) => p.id !== id));
+				  }))
+				: (state.carrito = state.carrito.filter((p) => p.id !== id));
 		},
 		PLUS(state, excursion) {
 			// pasa por un map ya que no altera el arreglo original
@@ -42,30 +42,28 @@ export default {
 		},
 	},
 	actions: {
-		agregarAlCarro({
-			commit,
-			state
-		}, excursion) {
+		agregarAlCarro({ commit, state }, excursion) {
 			excursion.cant = 1;
 			const exc = state.carrito.find((p) => p.id == excursion.id);
 			exc
-				?
-				commit('PLUS', excursion) : // esat accion me agregar un nuevo elemento en el arreglo por la logica del push
-				commit('AGREGAR_AL_CARRO', excursion);
+				? commit('PLUS', excursion) // esat accion me agregar un nuevo elemento en el arreglo por la logica del push
+				: commit('AGREGAR_AL_CARRO', excursion);
 		},
-		pagarTotal({
-			commit,
-			state
-		}) {
-			state.carrito.forEach((p) => {
-				firebase
-					.firestore()
-					.collection('excurciones')
-					.doc(p.id)
-					.update({
-						stock: p.stock - p.cant
-					});
-			});
+		pagarTotal({ commit, state }, router) {
+			try {
+				state.carrito.forEach(async (p) => {
+					await firebase
+						.firestore()
+						.collection('excurciones')
+						.doc(p.id)
+						.update({
+							stock: p.stock - p.cant,
+						});
+				});
+				router.push({ name: 'Gracias' });
+			} catch (e) {
+				alert('algo salió mal');
+			}
 		},
 	},
 	getters: {
