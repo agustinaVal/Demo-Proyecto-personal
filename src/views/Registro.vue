@@ -1,13 +1,17 @@
+<!-- @format -->
+
 <template>
 	<div id="Registro">
 		<template>
 			<h1 class="titulo__principal__registro">Registro</h1>
-			<br/>
-			<Form :excursion="excursion" />
 			<br />
-			<v-data-table :headers="headers" :items="excursionData" class="elevation-1">
+			<v-data-table
+				:headers="headers"
+				:items="excursionData"
+				class="elevation-1"
+			>
 				<template v-slot:item.img="{ item }">
-					<img width="130" :src="item.img" />
+					<img width="50" :src="item.img" />
 				</template>
 				<template v-slot:item.acciones="{ item }">
 					<v-btn color="warning" fab small dark @click="excuUpdate(item.id)">
@@ -22,75 +26,76 @@
 								Editando la actividad
 							</v-card-title>
 							<v-card-text
-								><Form :excursion="excuEdit" @hideDialog="dialog = false" :edit="true"
+								><Form
+									:excursion="excuEdit"
+									@hideDialog="dialog = false"
+									:edit="true"
 							/></v-card-text>
 						</v-card>
 					</v-dialog>
 				</template>
 			</v-data-table>
+			<br />
+			<Form :excursion="excursion" />
 		</template>
 	</div>
 </template>
 
 <script>
-import Form from '@/components/Form';
-import { mapGetters, mapActions } from 'vuex';
-export default {
-	name: 'Registro',
-	data() {
-		return {
-			dialog: false,
-			headers: [
-				{
-					align: 'start',
-					value: 'name',
+	import Form from '@/components/Form'
+	import { mapGetters, mapActions } from 'vuex'
+	export default {
+		name: 'Registro',
+		data() {
+			return {
+				dialog: false,
+				headers: [
+					{
+						align: 'start',
+						value: 'name',
+					},
+					{ text: 'Nombre', value: 'title' },
+					{ text: 'Imagen', value: 'img' },
+					{ text: 'SubTitulo', value: 'subtitle' },
+					{ text: 'Precios', value: 'price' },
+					{ text: 'Stock', value: 'stock' },
+					{ text: 'Acciones', value: 'acciones' },
+				],
+				excursion: {
+					title: '',
+					img: '',
+					description: '',
+					subtitle: '',
+					price: '',
+					stock: '',
 				},
-				{ text: 'Nombre', value: 'title' },
-				{ text: 'Imagen', value: 'img' },
-				{ text: 'Descripcion', value: 'description' },
-				{ text: 'SubTitulo', value: 'subtitle' },
-				{ text: 'Precios', value: 'price' },
-				{ text: 'Stock', value: 'stock' },
-				{ text: 'Acciones', value: 'acciones' },
-			],
-			excursion: {
-				title: '',
-				img: '',
-				description: '',
-				subtitle: '',
-				price: '',
-				stock: '',
+				excuEdit: {},
+			}
+		},
+		components: {
+			Form,
+		},
+		methods: {
+			...mapActions(['deleteExcursionFB']),
+			deleteExcursion(id) {
+				this.deleteExcursionFB(id)
 			},
-			excuEdit: {},
-		};
-	},
-	components: {
-		Form,
-	},
-	methods: {
-		...mapActions(['deleteExcursionFB']),
-		deleteExcursion(id) {
-			this.deleteExcursionFB(id);
+			excuUpdate(id) {
+				// se construye json para evitar errores en la edicion de datos
+				this.excuEdit = JSON.parse(
+					JSON.stringify(this.excursionData.find((p) => p.id == id))
+				)
+				this.dialog = true
+			},
 		},
-		excuUpdate(id) {
-			// se construye json para evitar errores en la edicion de datos
-			this.excuEdit = JSON.parse(JSON.stringify(this.excursionData.find((p) => p.id == id)));
-			this.dialog = true;
+		computed: {
+			...mapGetters(['excursionData']),
 		},
-	},
-	computed: {
-		...mapGetters(['excursionData']),
-	},
-};
+	}
 </script>
 
 <style lang="scss">
-#Registro {
-	margin-top: 50px;
-	font-size: 10px;
-}
-
-ul {
-	padding: 10px;
-}
+	.v-data-table > .v-data-table__wrapper > table > tbody > tr > td {
+		font-size: 10px;
+	}
 </style>

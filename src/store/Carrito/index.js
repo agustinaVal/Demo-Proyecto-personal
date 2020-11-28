@@ -64,7 +64,7 @@ export default {
 				})
 				router.push({ name: 'Gracias' })
 			} catch (e) {
-				alert('algo salió mal')
+				alert('Reintente algo salio mal')
 			}
 		},
 	},
