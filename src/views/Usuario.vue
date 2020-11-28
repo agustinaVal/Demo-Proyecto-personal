@@ -73,7 +73,7 @@
 
 <style>
 	.titulos_crear {
-		font-weight: 600;
+		font-weight: 700;
 		font-size: 40px;
 		color: #d500f9;
 	}
