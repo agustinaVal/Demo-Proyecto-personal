@@ -3,9 +3,13 @@
 <template>
 	<div>
 		<v-container class="mx-auto py-4">
-			<div v-if="this.carrito.length == 0" class="align-center justify-center">
+			<div
+				v-if="this.carrito.length == 0"
+				class="align-center justify-center py-10"
+			>
 				<h2 class="text-center titulo__carrito__sinItem">
-					Ups!! Tu Carrito está vacío!
+					<v-icon x-large color="green">mdi-cart</v-icon>Ups!! Tu Carrito está
+					vacío!
 				</h2>
 			</div>
 			<v-row v-else>
@@ -88,9 +92,9 @@
 
 <style>
 	.titulo__carrito__sinItem {
-		font-weight: 500;
-		font-size: 50px;
-		color: #d500f9;
+		font-weight: 700;
+		font-size: 35px;
+		color: grey;
 	}
 	.cuerpo__pago {
 		width: 100%;
