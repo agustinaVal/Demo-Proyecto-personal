@@ -39,12 +39,15 @@
 					<v-list-item>
 						<v-list-item-title @click="logout">Cerrar sesión</v-list-item-title>
 					</v-list-item>
-
-					<v-list-item :to="{ name: 'Registro' }">
-						<v-list-item-title>Ingreso Proveedores</v-list-item-title>
-					</v-list-item>
 				</v-list-item-group>
 			</v-list>
+			<v-container>
+				<v-row>
+					<v-btn dark color="green accent-4 mx-4" :to="{ name: 'Registro' }"
+						>Ingreso Proveedores</v-btn
+					>
+				</v-row>
+			</v-container>
 		</v-navigation-drawer>
 	</div>
 </template>
