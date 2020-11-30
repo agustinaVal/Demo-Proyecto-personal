@@ -2,7 +2,7 @@
 
 <template>
 	<div>
-		<v-container class="mx-auto py-4">
+		<v-container align="center" justify="center">
 			<div
 				v-if="this.carrito.length == 0"
 				class="align-center justify-center py-10"
@@ -12,7 +12,7 @@
 					vacío!
 				</h2>
 			</div>
-			<v-row v-else>
+			<v-row v-else align="center" justify="center">
 				<v-col cols="12" md="6">
 					<div
 						v-for="(item, i) in carrito"
@@ -28,10 +28,11 @@
 									Precio Unitario: $
 									{{ item.price }}
 								</span>
+								<v-img :src="item.img"></v-img>
 							</div>
 
-							<div class="contador__contenedor px-3">
-								<v-row>
+							<div class="contador__contenedor px-5">
+								<v-row align="center" justify="center py-5">
 									<v-btn fab x-small @click="MINUS(item.id)">
 										<v-icon>mdi-minus</v-icon>
 									</v-btn>
@@ -44,25 +45,29 @@
 						</div>
 					</div>
 				</v-col>
-				<div>
-					<v-col class="elevation-2 contenedor_total">
-						<v-card max-width="550">
-							<v-card-text>
-								<h3 class="px-3">Total: ${{ total }}</h3></v-card-text
-							>
-							<v-card-actions>
-								<v-spacer></v-spacer>
+
+				<div class="col-sm-6 col-lg-4 col-12">
+					<div
+						class="contenedor__servicios elevation-2"
+						align="center"
+						justify="center"
+					>
+						<h3>
+							<v-icon large color="green">mdi-cash</v-icon> Total: ${{ total }}
+						</h3>
+
+						<v-container>
+							<v-row align="center" justify="center">
 								<v-btn
-									@click="pagar_Total"
-									large
+									small
 									color="red accent-4 white--text"
-									class="boton__comprar"
+									class="boton__comprar white--text"
+									@click="pagar_Total"
+									>Pagar</v-btn
 								>
-									Pagar
-								</v-btn>
-							</v-card-actions>
-						</v-card>
-					</v-col>
+							</v-row>
+						</v-container>
+					</div>
 				</div>
 			</v-row>
 		</v-container>
@@ -97,16 +102,10 @@
 		color: grey;
 	}
 	.cuerpo__pago {
-		width: 100%;
 		color: black;
 		font-size: 20px;
-		padding: 20px;
-	}
-
-	.contenedor_total {
-		margin: auto;
-		justify-content: center;
-		text-align: center;
+		padding: 10px;
+		border-radius: 10px;
 	}
 
 	.boton__comprar {

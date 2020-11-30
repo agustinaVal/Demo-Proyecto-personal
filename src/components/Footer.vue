@@ -10,14 +10,18 @@
 					recorrer todos los atractivos de Buenos Aires y sus alrededores.
 				</v-card-text>
 				<v-card-text class="my-4 footer__text">
-					<h3 class="titulo__footer"><strong>Contáctanos</strong></h3>
-
-					<h4><strong>Teléfono:</strong> 4315-2326</h4>
-					<h4><strong>Correo:</strong> info@turismobaires.com.ar</h4>
-					<h4>
-						<strong>Dirección:</strong> Paraguay 729 Piso 5 Of 22, Retiro,
-						Ciudad de Buenos Aires.
-					</h4>
+					<h5>
+						<v-icon small class="pa-1" color="green">mdi-phone</v-icon>
+						4315-2326
+					</h5>
+					<h5>
+						<v-icon small class="pa-1" color="green">mdi-email</v-icon
+						>info@turismobaires.com.ar
+					</h5>
+					<h5>
+						<v-icon small class="pa-1" color="green">mdi-home</v-icon>Paraguay
+						729 Piso 5 Of 22, Retiro, Ciudad de Buenos Aires.
+					</h5>
 				</v-card-text>
 
 				<v-divider></v-divider>
@@ -43,8 +47,5 @@
 
 	#footer_final {
 		color: #00e5ff;
-	}
-	.titulo__footer {
-		color: black;
 	}
 </style>
