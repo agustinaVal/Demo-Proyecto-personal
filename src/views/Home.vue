@@ -144,7 +144,7 @@
 			</div>
 		</section>
 
-		<section id="Main__Galerias de imagenes">
+		<section id="Main__GaleriasImagenes">
 			<div>
 				<v-row align="center" justify="center">
 					<v-col class="text-center" cols="12">
@@ -215,5 +215,12 @@
 		border: thin solid rgba(0, 0, 0, 0.12);
 		height: 120px;
 		padding: 10px;
+	}
+	#Main__que_ver,
+	#Servicios__seccion,
+	#Main__donde_dormir,
+	#Main__GaleriasImagenes {
+		margin-bottom: 20px;
+		padding-bottom: 20px;
 	}
 </style>

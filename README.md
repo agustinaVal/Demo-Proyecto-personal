@@ -1,7 +1,11 @@
+<!-- @format -->
+
 # Turismobaires
 
-TurismoBaires es una App que ofrece alternativas para conocer cada rincón de Buenos Aires.
-Enamorate de la hermosa Cuidad Porteña!
+TurismoBaires es una App que ofrece alternativas para conocer cada rincón de
+Buenos Aires. Enamorate de la hermosa Cuidad Porteña! Esta App va dirigida a
+aquellos que quieran visitar Buenos Aires y necesitan información. ¡Disfruta el
+viaje!
 
 # Ingresa aquí para ver a la App
 
@@ -35,7 +39,7 @@ yarn build
 ### Pase a producción:
 
 ```
-yarn deploy
+firebase deploy --only hosting
 
 ```
 
@@ -58,6 +62,17 @@ yarn test:e2e
 4.  NodeJs y npm/ yarn
 5.  HTML5 y CSS
 6.  Firebase
+
+### Guía de estilos del proyecto:
+
+```
+Tipografía principal: Raleway
+Tamaños de fuentes: h1: 60px - h2: 40px - h3: 30px - h4: 20px
+Peso de fuentes: regular - medium - bold - extra bold -
+Colores Principales: Verde (green accent-4) - Turquesa (cyan accent-3) - Purpura (purple accent-3)
+Colores secundarios: Rosa (pink accent-3) - Gris (grey lighten-2) - Negro (black)
+
+```
 
 ### Proyecto producido por:
 

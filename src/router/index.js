@@ -104,8 +104,10 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
+	// variable user guarda la instancia del usuario actual
 	let usuario = firebase.auth().currentUser || { email: '' }
 	let autorizacion = to.matched.some((ruta) => ruta.meta.autentificando)
+	//si la ruta de destino es registro y el correo es distinto a admin me direge a home
 	if (to.path == '/registro' && usuario.email !== 'admin@admin.cl') {
 		next('/')
 	} else {
