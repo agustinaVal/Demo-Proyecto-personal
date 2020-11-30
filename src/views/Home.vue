@@ -39,12 +39,84 @@
 						>
 					</v-col>
 				</v-row>
-
 				<v-row>
 					<v-col sm="12" md="4" v-for="(excursion, i) in excursiones" :key="i"
 						><Cards :excursion="excursion"
 					/></v-col>
 				</v-row>
+			</div>
+		</section>
+
+		<section id="Servicios__seccion">
+			<v-row align="center" justify="center">
+				<v-col class="text-center" cols="12">
+					<h2 class="Titulo_main_QUEVER">Servicios</h2>
+					<span class="Home__sub-titulo_principal py-5"
+						>Descubre las mejores opciones para tu recorrido</span
+					>
+				</v-col>
+			</v-row>
+			<div class="row row-dense ">
+				<div class="col-sm-6 col-lg-4 col-12">
+					<div
+						class="contenedor__servicios elevation-2"
+						align="center"
+						justify="center"
+					>
+						<h3>
+							<v-icon color="green accent-4" class="pa-1">mdi-taxi</v-icon
+							>Servicios de Taxi
+						</h3>
+						<span class="pa-2">Conoce su funcionamiento</span>
+						<v-container>
+							<v-row align="center" justify="center">
+								<v-btn small color="pink" class="white--text" to="/Taxi"
+									>Ver más</v-btn
+								>
+							</v-row>
+						</v-container>
+					</div>
+				</div>
+				<div class="col-sm-6 col-lg-4 col-12">
+					<div
+						class="contenedor__servicios elevation-2"
+						align="center"
+						justify="center"
+					>
+						<h3>
+							<v-icon color="green accent-4" class="pa-1">mdi-bus</v-icon
+							>Servicios de Autobus
+						</h3>
+						<span class="pa-2">Conoce su funcionamiento</span>
+						<v-container>
+							<v-row align="center" justify="center">
+								<v-btn small color="pink" class="white--text" to="/Autobus"
+									>Ver más</v-btn
+								>
+							</v-row>
+						</v-container>
+					</div>
+				</div>
+				<div class="col-sm-6 col-lg-4 col-12">
+					<div
+						class="contenedor__servicios elevation-2"
+						align="center"
+						justify="center"
+					>
+						<h3>
+							<v-icon color="green accent-4" class="pa-1">mdi-subway</v-icon>
+							Servicios de Metro
+						</h3>
+						<span class="pa-2">Conoce su funcionamiento</span>
+						<v-container>
+							<v-row align="center" justify="center">
+								<v-btn small color="pink" class="white--text" to="/Metro"
+									>Ver más</v-btn
+								>
+							</v-row>
+						</v-container>
+					</div>
+				</div>
 			</div>
 		</section>
 
@@ -91,7 +163,7 @@
 		<section id="Footer">
 			<div>
 				<v-row align="center" justify="center">
-					<v-col class="text-center" sm="12">
+					<v-col class="text-center" col="12">
 						<Footer />
 					</v-col>
 				</v-row>
@@ -105,6 +177,7 @@
 	import Experiencias from '@/components/Experiencias.vue'
 	import Galeria from '@/components/Galeria.vue'
 	import Footer from '@/components/Footer.vue'
+
 	import { mapState } from 'vuex'
 	export default {
 		name: 'Home',
@@ -136,5 +209,11 @@
 		font-weight: 700;
 		font-size: 40px;
 		color: #d500f9;
+	}
+	.contenedor__servicios {
+		border-radius: 4px !important;
+		border: thin solid rgba(0, 0, 0, 0.12);
+		height: 120px;
+		padding: 10px;
 	}
 </style>

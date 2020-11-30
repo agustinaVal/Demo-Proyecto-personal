@@ -20,6 +20,24 @@ const routes = [
 			import(/* webpackChunkName: "about" */ '../components/Cards.vue'),
 	},
 	{
+		path: '/taxi',
+		name: 'Taxi',
+		component: () =>
+			import(/* webpackChunkName: "about" */ '../views/Taxi.vue'),
+	},
+	{
+		path: '/autobus',
+		name: 'Autobus',
+		component: () =>
+			import(/* webpackChunkName: "about" */ '../views/Autobus.vue'),
+	},
+	{
+		path: '/metro',
+		name: 'Metro',
+		component: () =>
+			import(/* webpackChunkName: "about" */ '../views/Metro.vue'),
+	},
+	{
 		path: '/experiencias',
 		name: 'Experiencias',
 		component: () =>

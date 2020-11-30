@@ -43,7 +43,9 @@
 			</v-list>
 			<v-container>
 				<v-row>
-					<v-btn dark color="green accent-4 mx-4" :to="{ name: 'Registro' }"
+					<v-btn
+						color="grey lighten-4 mx-4 boton__ingresoCrud"
+						:to="{ name: 'Registro' }"
 						>Ingreso Proveedores</v-btn
 					>
 				</v-row>
@@ -80,5 +82,8 @@
 
 	.Nav_nombre_usuario {
 		color: #00e5ff;
+	}
+	.boton__ingresoCrud {
+		margin-top: 400px;
 	}
 </style>
