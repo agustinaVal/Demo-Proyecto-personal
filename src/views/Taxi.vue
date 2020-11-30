@@ -1,7 +1,7 @@
 <!-- @format -->
 
 <template>
-	<div id="Metro">
+	<div id="Taxi">
 		<section>
 			<div>
 				<v-row align="center" justify="center">
@@ -28,7 +28,7 @@
 			<div>
 				<v-row align="center" justify="center">
 					<v-col class="text-center" cols="12">
-						<span class="py-1">
+						<span class="Home__sub-titulo_principal py-4">
 							Por Buenos Aires circulan actualmente más de 35.000 taxis.
 						</span>
 					</v-col>
@@ -36,28 +36,31 @@
 			</div>
 		</section>
 
-		<section id="Detalle__itinerario">
+		<section>
 			<div>
 				<v-row align="center" justify="center">
 					<v-col class="text-center" cols="12">
-						<h3 class="titulos_taxi py-2">Tarifas</h3>
-						<p class="py-1">
+						<h2 class="titulos_taxi py-2">Tarifas</h2>
+						<h4 class="py-1">
 							Aunque el precio de los taxis de Buenos Aires resulta bastante más
 							elevado que el de los colectivos o el Subte, las tarifas son
 							bastante económicas si las comparamos con Europa o Estados Unidos.
-						</p>
+						</h4>
 						<div class="py-3">
-							<ul>
-								* Bajada de bandera: 38,50 ARS (0,50 US$)
-							</ul>
-							<ul>
-								* Cada 200 metros de trayecto: 3,85 ARS (0 US$)
-							</ul>
-							<ul>
-								* Minuto de espera: 3,26 ARS (0 US$)
-							</ul>
-							<br />
-							<span
+							<p>
+								<strong>Bajada de bandera:</strong>
+								38,50 ARS (0,50 US$)
+							</p>
+							<p>
+								<strong>Cada 200 metros de trayecto:</strong>
+								3,85 ARS (0 US$)
+							</p>
+							<p>
+								<strong>Minuto de espera::</strong>
+								3,26 ARS (0 US$)
+							</p>
+
+							<span class="Home__sub-titulo_principal py-4"
 								>Todas las tarifas se incrementan un 20% en horario nocturno,
 								entre las 22:00 y las 06:00 horas.</span
 							>
@@ -70,30 +73,30 @@
 			<div>
 				<v-row align="center" justify="center">
 					<v-col class="text-center" cols="12">
-						<h3 class="py-1 titulos_taxi">
+						<h2 class="py-1 titulos_taxi">
 							Teléfonos
-						</h3>
-						<span
-							>Estos son los teléfonos de algunas de las compañías más conocidas
-							de taxis de Buenos Aires:</span
-						>
+						</h2>
+						<h4>
+							Estos son los teléfonos de algunas de las compañías más conocidas
+							de taxis de Buenos Aires:
+						</h4>
 						<div class="py-3">
-							<ul>
+							<p>
 								<strong>Radio Taxi Premium:</strong>
 								5238-0000.
-							</ul>
-							<ul>
+							</p>
+							<p>
 								<strong>City Tax::</strong>
 								4585-5544.
-							</ul>
-							<ul>
+							</p>
+							<p>
 								<strong>Radio Taxi Ciudad:</strong>
 								4923-7007.
-							</ul>
-							<ul>
+							</p>
+							<p>
 								<strong>Radio Taxi Premier:</strong>
 								4858-0888.
-							</ul>
+							</p>
 						</div>
 					</v-col>
 				</v-row>
@@ -124,8 +127,12 @@
 </script>
 <style>
 	.titulos_taxi {
-		font-weight: 400;
+		font-weight: 700;
 		font-size: 30px;
 		color: #d500f9;
+	}
+	h4 {
+		font-size: 20px;
+		font-weight: 400;
 	}
 </style>

@@ -27,12 +27,12 @@
 			<div>
 				<v-row align="center" justify="center">
 					<v-col class="text-center" cols="12">
-						<p class="py-1">
+						<span class="Home__sub-titulo_principal py-4">
 							Aunque para muchos porteños el metro es la mejor forma de recorrer
 							Buenos Aires, desde el punto de vista turístico se echa en falta
 							una red más extensa, ya que hay zonas por las que no pasa ninguna
 							línea.
-						</p>
+						</span>
 					</v-col>
 				</v-row>
 			</div>
@@ -42,36 +42,37 @@
 			<div>
 				<v-row align="center" justify="center">
 					<v-col class="text-center" cols="12">
-						<h3 class="titulos_metro py-2">Lineas de Metro</h3>
-						<p class="py-1">
+						<h2 class="titulos_metro py-2">Lineas de Metro</h2>
+						<h4 class="py-1">
 							El Subte(Metro) está formado por 6 líneas y 85 estaciones y
 							actualmente se encuentra en proceso de expansión.
-						</p>
+						</h4>
+
 						<div class="py-3">
-							<ul>
-								<strong>1</strong>
-								- Línea A (celeste): Plaza de Mayo - San Pedrito.
-							</ul>
-							<ul>
-								<strong>2</strong>
-								- Línea B (roja): Leandro N. Alem - Juan Manuel Rosas.
-							</ul>
-							<ul>
-								<strong>3</strong>
-								- Línea C (azul): Retiro - Constitución.
-							</ul>
-							<ul>
-								<strong>4</strong>
-								- Línea D (verde): Catedral - Congreso Tucumán.
-							</ul>
-							<ul>
-								<strong>5</strong>
-								- Línea E (violeta): Bolívar - Plaza de los Virreyes.
-							</ul>
-							<ul>
-								<strong>6</strong>
-								- Línea H (amarilla): Las Heras - Hospitales
-							</ul>
+							<p>
+								<strong>Línea A (celeste):</strong>
+								Plaza de Mayo - San Pedrito.
+							</p>
+							<p>
+								<strong>Línea B (roja):</strong>
+								Leandro N. Alem - Juan Manuel Rosas.
+							</p>
+							<p>
+								<strong>Línea C (azul):</strong>
+								Retiro - Constitución.
+							</p>
+							<p>
+								<strong>Línea D (verde):</strong>
+								Catedral - Congreso Tucumán.
+							</p>
+							<p>
+								<strong>Línea E (violeta):</strong>
+								Bolívar - Plaza de los Virreyes.
+							</p>
+							<p>
+								<strong>Línea H (amarilla):</strong>
+								Las Heras - Hospitales
+							</p>
 						</div>
 					</v-col>
 				</v-row>
@@ -81,19 +82,19 @@
 			<div>
 				<v-row align="center" justify="center">
 					<v-col class="text-center" cols="12">
-						<h3 class="py-1 titulos_metro">
+						<h2 class="py-1 titulos_metro">
 							Horario
-						</h3>
-						<span
-							>El funcionamiento del Subte de Buenos Aires comienza a las 5:00
-							de la mañana y finaliza entre las 21:00 y las 23:00 horas en
-							función de la línea.</span
-						>
+						</h2>
+						<h4>
+							El funcionamiento del Subte de Buenos Aires comienza a las 5:00 de
+							la mañana y finaliza entre las 21:00 y las 23:00 horas en función
+							de la línea.
+						</h4>
 						<br />
-						<span
-							>Los trenes tienen una frecuencia que varía entre 3 y 8 minutos
-							dependiendo de la línea y la hora.</span
-						>
+						<p>
+							Los trenes tienen una frecuencia que varía entre 3 y 8 minutos
+							dependiendo de la línea y la hora.
+						</p>
 					</v-col>
 				</v-row>
 			</div>
@@ -103,20 +104,20 @@
 			<div>
 				<v-row align="center" justify="center">
 					<v-col class="text-center" cols="12">
-						<h3 class="py-1 titulos_metro">
+						<h2 class="py-1 titulos_metro">
 							Tarifas
-						</h3>
-						<span
-							>Un billete sencillo del Subte (Subtepass) tiene un precio de
-							16,50 ARS (0,20 US$). Existe la posibilidad de comprar billetes de
-							1 o 10 viajes, aunque la tarifa no se ve reducida al adquirir
-							varios al mismo tiempo.</span
-						>
+						</h2>
+						<h4>
+							Un billete sencillo del Subte (Subtepass) tiene un precio de 16,50
+							ARS (0,20 US$). Existe la posibilidad de comprar billetes de 1 o
+							10 viajes, aunque la tarifa no se ve reducida al adquirir varios
+							al mismo tiempo.
+						</h4>
 						<br />
-						<span
-							>Para utilizar el transporte público es necesario aquirir la
+						<p>
+							Para utilizar el transporte público es necesario aquirir la
 							Tarjeta SUBE.
-						</span>
+						</p>
 					</v-col>
 				</v-row>
 			</div>
@@ -147,7 +148,7 @@
 </script>
 <style>
 	.titulos_metro {
-		font-weight: 400;
+		font-weight: 700;
 		font-size: 30px;
 		color: #d500f9;
 	}
