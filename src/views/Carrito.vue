@@ -26,7 +26,7 @@
 								</span>
 							</div>
 
-							<div class="contador__contenedor">
+							<div class="contador__contenedor px-3">
 								<v-row>
 									<v-btn fab x-small @click="MINUS(item.id)">
 										<v-icon>mdi-minus</v-icon>
@@ -40,28 +40,27 @@
 						</div>
 					</div>
 				</v-col>
-			</v-row>
-			<div>
-				<v-col class="elevation-2 contenedor_total">
-					<v-card max-width="500">
-						<v-card-text>
-							<h3 class="px-3">
-								<strong>Total: $</strong> {{ total }}
-							</h3></v-card-text
-						>
-						<v-card-actions>
-							<v-spacer></v-spacer>
-							<v-btn
-								@click="pagar_Total"
-								large
-								color="red accent-4 white--text"
+				<div>
+					<v-col class="elevation-2 contenedor_total">
+						<v-card max-width="550">
+							<v-card-text>
+								<h3 class="px-3">Total: ${{ total }}</h3></v-card-text
 							>
-								Pagar
-							</v-btn>
-						</v-card-actions>
-					</v-card>
-				</v-col>
-			</div>
+							<v-card-actions>
+								<v-spacer></v-spacer>
+								<v-btn
+									@click="pagar_Total"
+									large
+									color="red accent-4 white--text"
+									class="boton__comprar"
+								>
+									Pagar
+								</v-btn>
+							</v-card-actions>
+						</v-card>
+					</v-col>
+				</div>
+			</v-row>
 		</v-container>
 	</div>
 </template>
@@ -98,5 +97,15 @@
 		color: black;
 		font-size: 20px;
 		padding: 20px;
+	}
+
+	.contenedor_total {
+		margin: auto;
+		justify-content: center;
+		text-align: center;
+	}
+
+	.boton__comprar {
+		width: 250px;
 	}
 </style>
