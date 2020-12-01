@@ -15,7 +15,7 @@
 				:src="excursion.data.img"
 			>
 			</v-img>
-			<v-card-title
+			<v-card-title class="titulo_nombre_exc"
 				><strong>{{ excursion.data.title }}</strong></v-card-title
 			>
 
@@ -32,7 +32,12 @@
 
 			<v-card-actions>
 				<div @click="loginModal = true" class="mx-10">
-					<v-btn color="pink accent-2" text @click="agregar_Al_Carro">
+					<v-btn
+						id="comprar__btn"
+						color="pink accent-2"
+						text
+						@click="agregar_Al_Carro"
+					>
 						<strong>Comprar</strong>
 					</v-btn>
 				</div>

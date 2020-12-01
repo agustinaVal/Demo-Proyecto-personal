@@ -12,16 +12,17 @@
 					vacío!
 				</h2>
 			</div>
+
 			<v-row v-else align="center" justify="center">
 				<v-col cols="12" md="6">
 					<div
 						v-for="(item, i) in carrito"
 						:key="i"
-						class="cuerpo__pago elevation-3"
+						class="cuerpo__pago elevation-3 my-10"
 					>
 						<div>
 							<div>
-								<h3 class="px-3">
+								<h3 class="px-3 v-card__title">
 									{{ item.title }}
 								</h3>
 								<span class="px-3">

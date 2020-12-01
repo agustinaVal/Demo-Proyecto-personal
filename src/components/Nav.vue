@@ -18,7 +18,7 @@
 				<strong>{{ usuario.name }}</strong>
 			</div>
 			<router-link :to="{ name: 'Carrito' }">
-				<v-icon color="green accent-4" large>mdi-cart</v-icon>
+				<v-icon id="icon_carrito" color="green accent-4" large>mdi-cart</v-icon>
 			</router-link>
 		</v-app-bar>
 
