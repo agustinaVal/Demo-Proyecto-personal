@@ -7,6 +7,7 @@
 				@click.stop="drawer = !drawer"
 				color="green accent-4"
 				large
+				id="Boton__navbar"
 			></v-app-bar-nav-icon>
 			<v-toolbar-title class="Nav_titulo_principal"
 				>TurismoBaires</v-toolbar-title
@@ -29,7 +30,9 @@
 					</v-list-item>
 
 					<v-list-item :to="{ name: 'Usuario' }">
-						<v-list-item-title> Crear cuenta</v-list-item-title>
+						<v-list-item-title id="CrearCuenta__nav">
+							Crear cuenta</v-list-item-title
+						>
 					</v-list-item>
 
 					<v-list-item :to="{ name: 'Login' }">

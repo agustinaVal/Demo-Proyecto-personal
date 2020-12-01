@@ -111,7 +111,12 @@ router.beforeEach((to, from, next) => {
 	if (to.path == '/registro' && usuario.email !== 'admin@admin.cl') {
 		next('/')
 	} else {
+		//metodo que permite que el usuario llegue a la ruta a donde el usuario se definias
 		next()
+
+		// que pasa si no se utiliza el next = no pasa nada no da error, no termina de procesar el ciclo
+		// como evitar que se crayee la app? con el try catch
+		//emit: emite un evento personalizado
 	}
 })
 
