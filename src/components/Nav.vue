@@ -26,7 +26,7 @@
 			<v-list nav>
 				<v-list-item-group active-class="green--text text--lighten-1">
 					<v-list-item :to="{ name: 'Home' }">
-						<v-list-item-title> Inicio </v-list-item-title>
+						<v-list-item-title id="inicio_btn"> Inicio </v-list-item-title>
 					</v-list-item>
 
 					<v-list-item :to="{ name: 'Usuario' }">
@@ -36,7 +36,9 @@
 					</v-list-item>
 
 					<v-list-item :to="{ name: 'Login' }">
-						<v-list-item-title>Iniciar sesión</v-list-item-title>
+						<v-list-item-title id="Login__nav"
+							>Iniciar sesión</v-list-item-title
+						>
 					</v-list-item>
 
 					<v-list-item>

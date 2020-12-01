@@ -13,6 +13,7 @@
 								v-model="user.email"
 								label="E-mail"
 								required
+								id="Login__name"
 							></v-text-field>
 							<v-text-field
 								v-model="user.password"
@@ -20,6 +21,7 @@
 								:type="show1 ? 'text' : 'password'"
 								label="Contraseña"
 								@click:append="show1 = !show1"
+								id="Login__contraseña"
 							></v-text-field>
 						</v-col>
 						<v-col cols="12" align="center">
@@ -28,7 +30,7 @@
 								color="green accent-4 my-4 white--text"
 								dark
 								large
-								class="mx-5"
+								class="mx-5 loginUser_btn"
 							>
 								Ingresar
 							</v-btn>
