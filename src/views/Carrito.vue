@@ -25,10 +25,10 @@
 								<h3 class="px-3 v-card__title">
 									{{ item.title }}
 								</h3>
-								<span class="px-3">
+								<h6 class="px-3">
 									Precio Unitario: $
-									{{ item.price }}
-								</span>
+									<span class="v-card_price">{{ item.price }}</span>
+								</h6>
 								<v-img :src="item.img"></v-img>
 							</div>
 
@@ -37,7 +37,7 @@
 									<v-btn fab x-small @click="MINUS(item.id)">
 										<v-icon>mdi-minus</v-icon>
 									</v-btn>
-									<span class="px-3">{{ item.cant }}</span>
+									<span class="px-3 items__cantidad">{{ item.cant }}</span>
 									<v-btn fab x-small @click="PLUS({ id: item.id })">
 										<v-icon>mdi-plus</v-icon>
 									</v-btn>
@@ -53,7 +53,7 @@
 						align="center"
 						justify="center"
 					>
-						<h3>
+						<h3 id="total_productos__carrito">
 							<v-icon large color="green">mdi-cash</v-icon> Total: ${{ total }}
 						</h3>
 
