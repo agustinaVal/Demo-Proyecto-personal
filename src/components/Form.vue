@@ -3,31 +3,37 @@
 <template>
 	<v-form ref="form">
 		<v-text-field
+			id="titlulo_crud"
 			v-model="excursion.title"
 			label="Nombre"
 			required
 		></v-text-field>
 		<v-text-field
+			id="subtitulo_crud"
 			v-model="excursion.subtitle"
 			label="Sub-titulo"
 			required
 		></v-text-field>
 		<v-text-field
+			id="img_crud"
 			v-model="excursion.img"
 			label="Dirección de la imagen"
 			required
 		></v-text-field>
 		<v-text-field
+			id="descripcion_crud"
 			v-model="excursion.description"
 			label="Descripcion"
 			required
 		></v-text-field>
 		<v-text-field
+			id="precio_crud"
 			v-model="excursion.price"
 			label="Precios"
 			required
 		></v-text-field>
 		<v-text-field
+			id="stock_crud"
 			v-model="excursion.stock"
 			label="Stock"
 			required
@@ -36,6 +42,7 @@
 		<br />
 		<template>
 			<v-btn
+				id="agregar_item_crud"
 				v-show="!edit"
 				color="primary"
 				class="mr-4"

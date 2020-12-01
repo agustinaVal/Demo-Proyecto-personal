@@ -2,7 +2,7 @@
 
 describe('My First Test', () => {
 	it('Test de crear usuario', () => {
-		cy.visit('/home')
+		cy.visit('/')
 
 		cy.get('#Boton__navbar').click()
 		cy.get('#CrearCuenta__nav').click()
