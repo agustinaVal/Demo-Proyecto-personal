@@ -1,4 +1,6 @@
-import firebase from 'firebase';
+/** @format */
+
+import firebase from 'firebase'
 
 export default {
 	state: {
@@ -10,21 +12,21 @@ export default {
 			firebase
 				.firestore()
 				.collection('excurciones')
-				.add(excursion);
+				.add(excursion)
 		},
 		deleteExcursionFB({ commit }, id) {
 			firebase
 				.firestore()
 				.collection('excurciones')
 				.doc(id)
-				.delete();
+				.delete()
 		},
 		editExcursionFB({ commit }, excursion) {
 			firebase
 				.firestore()
 				.collection('excurciones')
 				.doc(excursion.id)
-				.set(excursion);
+				.set(excursion)
 		},
 	},
-};
+}

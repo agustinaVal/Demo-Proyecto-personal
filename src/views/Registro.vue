@@ -20,21 +20,19 @@
 					<v-btn color="red" fab small dark @click="deleteExcursion(item.id)">
 						<v-icon>mdi-delete</v-icon>
 					</v-btn>
-					<v-dialog v-model="dialog" max-width="590">
-						<v-card>
-							<v-card-title class="headline">
-								Editando la actividad
-							</v-card-title>
-							<v-card-text
-								><Form
-									:excursion="excuEdit"
-									@hideDialog="dialog = false"
-									:edit="true"
-							/></v-card-text>
-						</v-card>
-					</v-dialog>
 				</template>
 			</v-data-table>
+			<v-dialog v-model="dialog" max-width="590">
+				<v-card>
+					<v-card-title class="headline"> Editando la actividad </v-card-title>
+					<v-card-text
+						><Form
+							:excursion="excuEdit"
+							@hideDialog="dialog = false"
+							:edit="true"
+					/></v-card-text>
+				</v-card>
+			</v-dialog>
 			<br />
 			<Form :excursion="excursion" />
 		</template>
